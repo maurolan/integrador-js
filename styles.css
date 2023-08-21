@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  text-decoration: none;
+  text-decoration: nono;
   list-style-type: none;
   font-family: "Roboto", sans-serif;
 }
@@ -259,6 +259,10 @@ footer,
   text-align: center;
 }
 
+.hero-moreinfo-lnk {
+  color: #7e0d0d;
+}
+
 .hero-info-container-final {
   flex-wrap: wrap;
   gap: 30px;
@@ -476,6 +480,10 @@ footer,
   color: #f3e8e8;
   background-color: #100d2cda;
   box-shadow: #585757 2px 2px 8px 1px;
+}
+
+.tecnico-head-lnk {
+  align-self: center;
 }
 
 .tecnico-head-btn {
