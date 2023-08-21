@@ -11,22 +11,19 @@
 
 /* <!-- ENCABEZADO --> */
 body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   gap: 30px;
 }
 
 .icon {
   font-size: 30px;
 }
+
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   max-width: 1400px;
-  width: 95%;
+  width: 100vw;
   height: 77px;
   background-color: #1f1d1d;
 }
@@ -36,12 +33,10 @@ body {
   background-color: rgba(116, 13, 13, 0.664);
   justify-content: space-evenly;
   align-items: center;
-  /* flex-wrap: wrap; */
-  border: crimson 1px solid;
   border-radius: 15px;
-  width: 60%;
+  width: 75%;
   height: 50%;
-  gap: 20px;
+  gap: 18px;
   overflow: hidden;
 }
 
@@ -80,6 +75,7 @@ body {
 
 /* <!-- SECCION HERO --> */
 
+body,
 .home,
 .tecnico,
 .hero-info-container,
@@ -148,6 +144,7 @@ footer,
   text-align: center;
   margin: 7px;
   color: rgb(83, 9, 9);
+  /*PONER EFECTO A ESTE TITULO*/
 }
 
 .hero-subtitulo {
@@ -204,6 +201,10 @@ footer,
 
 .hero-info-detail {
   font-size: 1.4em;
+  text-align: center;
+  background-color: #dad3d3;
+  border-radius: 25px;
+  padding: 10px;
 }
 
 .hero-moreinfo {
@@ -441,6 +442,7 @@ footer,
   font-weight: 600;
   letter-spacing: 2px;
   margin: 7px;
+  /*PONER EFECTO A ESTE TITULO*/
 }
 
 .tecnico-head-descrip {
@@ -455,10 +457,10 @@ footer,
 .text-general,
 .text-general-final {
   color: #d8c1c1;
-  box-shadow: #585757 2px 2px 10px 1px;
+  box-shadow: #585757 1px 1px 8px 1px;
   background-color: #220a0ada;
   padding: 15px;
-  border-radius: 30px;
+  border-radius: 15px;
   font-size: 1.2em;
   margin: 4px;
 }
@@ -468,7 +470,7 @@ footer,
   margin-top: 30px;
   color: #f3e8e8;
   background-color: #100d2cda;
-  box-shadow: #585757 2px 2px 10px 1px;
+  box-shadow: #585757 2px 2px 8px 1px;
 }
 
 .tecnico-head-btn {
@@ -480,48 +482,12 @@ footer,
   border-radius: 30px;
   background-color: rgb(83, 9, 9);
   border: none;
-  box-shadow: rgb(63, 63, 62) 3px 3px 70px 1px;
+  box-shadow: rgb(63, 63, 62) 2px 2px 30px 1px;
   color: rgb(247, 215, 208);
   font-size: 1.8em;
   font-weight: 400;
   cursor: pointer;
   margin: 60px 0;
-}
-
-.tecnico-detail-container {
-  width: 60%;
-  margin: 30px 0;
-}
-
-.tecnico-detail-card {
-  overflow: hidden;
-  gap: 30px;
-  padding: 20px 0;
-  width: 70%;
-}
-
-.tecnico-detail-card-img {
-  border: #b4b2b2 2px solid;
-  box-shadow: #585757 0px 5px 10px 0px;
-  border-radius: 10px;
-  width: 80%;
-}
-
-.tecnico-detail-text {
-  font-size: 1.3em;
-}
-
-.tecnico-detail-card-btn {
-  align-self: flex-end;
-  margin-right: 30px;
-  width: 130px;
-  height: 50px;
-  font-size: 140%;
-  color: rgb(240, 247, 253);
-  box-shadow: #585757 0px 5px 10px 0px;
-  background-color: #585757;
-  border-radius: 10px;
-  cursor: pointer;
 }
 
 /* <!-- SECCION CONTACTO --> */
@@ -576,9 +542,8 @@ footer,
 }
 
 .contacto-form-title {
-  font-size: 2em;
-  color: #b4b2b2;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 3em;
+  color: #524d4d;
 }
 
 .contacto-form-input {
