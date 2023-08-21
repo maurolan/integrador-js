@@ -1,0 +1,461 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style-type: none;
+  font-family: "Roboto", sans-serif;
+  /* font-family: "Texturina", serif; */
+  /* border: rgb(6, 245, 46) 1px solid; */
+}
+
+/* <!-- ENCABEZADO --> */
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.icon {
+  font-size: 30px;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  width: 95%;
+  height: 77px;
+  background-color: #1f1d1d;
+}
+
+.menu-container {
+  display: flex;
+  background-color: rgba(116, 13, 13, 0.664);
+  justify-content: space-evenly;
+  align-items: center;
+  /* flex-wrap: wrap; */
+  /* border: crimson 1px solid; */
+  border-radius: 15px;
+  width: 60%;
+  height: 50%;
+  gap: 20px;
+  overflow: hidden;
+}
+
+.menu-container > li:hover {
+  background-color: rgba(215, 236, 172, 0.452);
+  border-radius: 5px;
+}
+
+.item a {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.4em;
+  color: rgb(255, 240, 240);
+}
+
+.logo {
+  width: 10%;
+  max-width: 80px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.cart-menu-container {
+  display: flex;
+  margin-right: 20px;
+}
+
+.fa-cart-shopping,
+.fa-bars {
+  margin-right: 20px;
+  font-size: 25px;
+}
+
+.fa-bars {
+  visibility: hidden;
+}
+
+/* <!-- SECCION HERO --> */
+
+.home {
+  /* border: crimson 1px solid; */
+  width: 90vw;
+  max-width: 1400px;
+}
+
+.hero-container {
+  display: flex;
+  justify-content: center;
+  margin: 1em;
+  padding: 20px;
+  /* border: crimson 1px solid; */
+  min-height: 200px;
+  gap: 30px;
+}
+
+.hero-img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  max-width: 400px;
+}
+
+.hero-img-portada {
+  width: 100%;
+  border-radius: 50%;
+  box-shadow: rgb(63, 63, 62) 5px 5px 60px 1px;
+}
+
+.hero-info-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  /* border: crimson 1px solid; */
+  width: 750px;
+  max-width: 780px;
+  gap: 20px;
+}
+
+.hero-titulo {
+  /* border: crimson 1px solid; */
+  font-size: 4em;
+  font-weight: 900;
+  letter-spacing: 3px;
+  text-align: center;
+  margin: 7px;
+  color: rgb(83, 9, 9);
+}
+
+.hero-subtitulo {
+  /* border: crimson 1px solid; */
+  font-size: 2.5em;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-align: center;
+  margin: 7px;
+}
+
+.hero-details {
+  /* border: crimson 1px solid; */
+  font-size: 2em;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.hero-btn {
+  width: 230px;
+  height: 60px;
+  border-radius: 30px;
+  margin: 10px;
+  background-color: rgb(83, 9, 9);
+  border: none;
+  box-shadow: rgb(63, 63, 62) 3px 3px 70px 1px;
+  color: rgb(247, 215, 208);
+  font-size: 2em;
+  font-weight: 400;
+  cursor: pointer;
+  margin-top: 70px;
+}
+
+/* <!-- SECCCION GARAGE --> */
+
+.acerca {
+  /* border: crimson 1px solid; */
+  width: 90vw;
+  max-width: 1400px;
+}
+
+.hero-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin: 90px 0;
+  padding: 10px;
+  /* border: rgb(109, 11, 11) 1px solid; */
+  background-color: rgba(218, 218, 218, 0.363);
+  min-height: 200px;
+  border-radius: 20px;
+}
+
+.hero-info-title {
+  font-size: 1.9em;
+}
+
+.hero-info-detail {
+  font-size: 1.4em;
+}
+
+.hero-moreinfo {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 80px 0;
+  padding: 20px;
+  /* border: rgb(35, 4, 145) 1px solid; */
+  min-height: 200px;
+}
+
+.hero-moreinfo-ticket {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 15px;
+  width: 32%;
+  max-width: 290px;
+  min-height: 340px;
+  gap: 20px;
+  background-color: rgba(235, 215, 215, 0.459);
+  /* border: crimson 1px solid; */
+  border-radius: 20px;
+}
+
+.hero-moreinfo-ticket-img {
+  font-size: 70px;
+  color: rgb(116, 13, 13);
+  margin-bottom: 10px;
+}
+
+.hero-moreinfo-ticket-title {
+  font-size: 1.5em;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.hero-moreinfo-ticket-info {
+  font-size: 20px;
+  text-align: center;
+}
+
+.hero-info-container-final {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin: 10px 0;
+  padding: 10px;
+  background-color: rgba(218, 218, 218, 0.363);
+  min-height: 200px;
+  border-radius: 20px;
+}
+
+.hero-info-final {
+  text-align: center;
+  font-size: 18px;
+}
+
+/* <!-- SECCION ARTICULOS --> */
+
+.articulos {
+  /* border: crimson 1px solid; */
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 90vw;
+  max-width: 1400px;
+}
+
+.articulos-categories {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 90%;
+  height: 100px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.art-cat-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  height: 40px;
+  border-radius: 7px;
+  gap: 10px;
+  background-color: #d1cdcd;
+  cursor: pointer;
+}
+
+.art-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  margin: 10px 0;
+  width: 90%;
+  height: 500px; /* VER BIEN EL CALCULO CON LAS CARDS CARGADAS*/
+  gap: 40px;
+}
+
+.art-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 7px;
+  width: 300px;
+  height: 450px;
+  max-height: 600px;
+  gap: 15px;
+  border-radius: 30px;
+  background-color: rgba(218, 218, 218, 0.815);
+}
+
+.art-img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: #585757 2px solid;
+  box-shadow: #585757 0px 5px 10px 0px;
+  border-radius: 10px;
+  width: 170px;
+  height: 170px;
+}
+
+.art-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+}
+
+.art-nombre {
+  font-size: 1.6em;
+}
+
+.art-description {
+  width: 80%;
+  color: #585757;
+  font-size: 0.9em;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.art-more-btn {
+  width: 230px;
+  height: 60px;
+  border-radius: 30px;
+  margin: 10px;
+  background-color: rgb(83, 9, 9);
+  border: none;
+  box-shadow: rgb(63, 63, 62) 3px 3px 70px 1px;
+  color: rgb(247, 215, 208);
+  font-size: 2em;
+  font-weight: 400;
+  cursor: pointer;
+  margin-top: 40px;
+}
+
+.art-price-btn-container {
+  display: flex;
+  width: 90%;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.art-btn-add {
+  width: 40%;
+  height: 35px;
+  background-color: #95b910;
+  box-shadow: #585757 4px 4px 10px 2px;
+  border-radius: 20px;
+  font-size: 1em;
+  font-weight: 600;
+}
+
+.art-price {
+  font-size: 2.7em;
+  font-weight: 600;
+}
+
+/* <!-- SECCION CONTACTO --> */
+
+/* FOOTER */
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: first baseline;
+  padding: 50px 30px 5px 30px;
+  margin: 2.5em 0 0 0;
+  background-color: #1f1d1d;
+  height: 230px;
+  width: 95%;
+  border-radius: 30px 30px 0 0;
+}
+footer > p {
+  font-size: 1.25em;
+}
+
+#copyright {
+  display: flex;
+  flex-direction: column;
+  color: #666;
+  font-size: 1em;
+  line-height: 1em;
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.footer-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+#copyright li {
+  display: inline-block;
+  border-left: solid 1px rgba(0, 0, 0, 0.5);
+  box-shadow: -1px 0px 0px 0px rgba(255, 255, 255, 0.1);
+  padding: 0 0 0 1em;
+  margin: 0 0 0 1em;
+}
+
+#copyright li:first-child {
+  border: 0;
+  box-shadow: none;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+#copyright a {
+  -moz-transition: color 0.2s ease-in-out;
+  -webkit-transition: color 0.2s ease-in-out;
+  -ms-transition: color 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out;
+  color: inherit;
+}
+
+#copyright a:hover {
+  color: #7e0d0d;
+}
+
+.fa-brands {
+  font-size: 35px;
+}
+
+.fa-brands:hover {
+  color: #d1cdcd;
+}
