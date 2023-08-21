@@ -86,4 +86,19 @@
   .contacto-form-title {
     font-size: 1.8em;
   }
+
+  .footer-icon-container {
+    gap: 25px;
+    width: 95%;
+    margin-top: 50px;
+  }
+
+  .contacto-container {
+    padding: 5px;
+  }
+
+  .google-map {
+    margin-top: 20px;
+    width: 270px;
+  }
 }
