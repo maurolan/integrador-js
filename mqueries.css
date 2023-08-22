@@ -17,19 +17,24 @@
     visibility: hidden;
   }
 
+  /* body {
+    position: relative;
+  } */
+
   .menu-toggle {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: absolute;
+    position: sticky;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
     gap: 50px;
     border-radius: 0;
-    visibility: hidden;
+    display: none;
+    /* visibility: hidden; */
     background-color: rgba(43, 74, 83, 0.856);
   }
 
