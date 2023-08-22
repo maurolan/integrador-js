@@ -21,6 +21,15 @@
 
 
     <!-- ENCABEZADO y NAVbar -->
+    <ul class="menu-toggle" id="menu-toggle">
+        <li class="item"><a class="item-a" href="#home">Home</a></li>
+        <li class="item"><a class="item-a" href="#acerca">Acerca</a></li>
+        <li class="item"><a class="item-a" href="#articulos">Artículos</a></li>
+        <li class="item"><a class="item-a" href="#tecnico">ServTecnico</a></li>
+        <li class="item"><a class="item-a" href="#contacto">Contacto</a></li>
+    </ul>
+
+
     <header class="navbar">
         <img class="logo" src="./assets/vglogo.png" alt="logo de Venta de Garage" />
         <ul class="menu-container">
@@ -31,15 +40,16 @@
             <li class="item"><a href="#contacto">Contacto</a></li>
         </ul>
         <div class="cart-menu-container">
-            <i class="fa-solid fa-bars" style="color: #f1f4fa;"></i>
-            <i class="fa-solid fa-cart-shopping" style="color: #dfdfdf;"></i>
+            <i class="fa-solid fa-bars" id="menu-toggle-icon" style="color: #f1f4fa;"></i>
+            <i class="fa-solid fa-cart-shopping" id="menu-cart" style="color: #dfdfdf;"></i>
         </div>
     </header>
 
     <!-- SECCION HERO -->
     <section class="home" id="home">
         <div class="hero-container">
-            <div class="hero-img-container"><img src="./assets/img/homeimg.jpg" alt="" class="hero-img-portada"></div>
+            <div class="hero-img-container"><img src="./assets/img/homeimg.jpg" alt="" class="hero-img-portada">
+            </div>
             <div class="hero-info-container">
                 <h1 class="hero-titulo">Venta de Garage</h1>
                 <h3 class="hero-subtitulo">Artículos Usados de Computación</h3>
@@ -67,17 +77,21 @@
         <div class="hero-moreinfo">
             <div class="hero-moreinfo-ticket"><i class="hero-moreinfo-ticket-img fa-solid fa-share-nodes"></i>
                 <h3 class="hero-moreinfo-ticket-title">Nos conectamos</h3>
-                <p class="hero-moreinfo-ticket-info">Contactame y contame que estas necesitando. Podes usar cualquier
-                    canal de comunicación de la sección <a class="hero-moreinfo-lnk" href="#contacto">Contacto</a></p>
+                <p class="hero-moreinfo-ticket-info">Contactame y contame que estas necesitando. Podes usar
+                    cualquier
+                    canal de comunicación de la sección <a class="hero-moreinfo-lnk" href="#contacto">Contacto</a>
+                </p>
             </div>
             <div class="hero-moreinfo-ticket"><i class="hero-moreinfo-ticket-img fa-solid fa-camera-retro"></i>
                 <h3 class="hero-moreinfo-ticket-title">Te fijas que te sirve</h3>
-                <p class="hero-moreinfo-ticket-info">En los artículos que tengo, y sino... dejame revolver que en alguna
+                <p class="hero-moreinfo-ticket-info">En los artículos que tengo, y sino... dejame revolver que en
+                    alguna
                     caja siempre encuentro algo...</p>
             </div>
             <div class="hero-moreinfo-ticket"><i class="hero-moreinfo-ticket-img fa-regular fa-thumbs-up"></i>
                 <h3 class="hero-moreinfo-ticket-title">Acordamos Venta/Servicio</h3>
-                <p class="hero-moreinfo-ticket-info">Si necesitas arreglar la compu, te puedo ayudar... la traes o voy a
+                <p class="hero-moreinfo-ticket-info">Si necesitas arreglar la compu, te puedo ayudar... la traes o
+                    voy a
                     domicilio.
                 </p>
             </div>
@@ -115,7 +129,8 @@
                 <div class="art-img-container"><img class="art-img" src="./assets/img/articles/0002.jpg"
                         alt="memoria ddr3"></div>
                 <h3 class="art-nombre">Memoria DDR 3</h3>
-                <p class="art-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi voluptatibus
+                <p class="art-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
+                    voluptatibus
                     consectetur doloremque.</p>
                 <div class="art-price-btn-container">
                     <h2 class="art-price">$150</h2>
@@ -127,7 +142,8 @@
                 <div class="art-img-container"><img class="art-img" src="./assets/img/articles/0001.jpg"
                         alt="disco de laptop"></div>
                 <h3 class="art-nombre">Disco Laptop</h3>
-                <p class="art-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi voluptatibus
+                <p class="art-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
+                    voluptatibus
                     consectetur doloremque.</p>
                 <div class="art-price-btn-container">
                     <h2 class="art-price">$200</h2>
@@ -136,9 +152,11 @@
             </div>
 
             <div class="art-card">
-                <div class="art-img-container"><img class="art-img" src="./assets/img/articles/0003.jpg" alt=""></div>
+                <div class="art-img-container"><img class="art-img" src="./assets/img/articles/0003.jpg" alt="">
+                </div>
                 <h3 class="art-nombre">Motherboard</h3>
-                <p class="art-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi voluptatibus
+                <p class="art-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
+                    voluptatibus
                     consectetur doloremque.</p>
                 <div class="art-price-btn-container">
                     <h2 class="art-price">$700</h2>
@@ -161,8 +179,6 @@
             <div class="tecnico-head-info-container">
                 <h2 class="tecnico-title">Servicio Técnico</h2>
                 <img src="./assets/img/tecnico/mother.jpg" alt="" class="tecnico-head-img">
-                <!-- <img src="./assets/img/tecnico/monitor.jpg" alt="" class="tecnico-head-img">
-                <img src="./assets/img/tecnico/computadora.jpg" alt="" class="tecnico-head-img"> -->
                 <p class="tecnico-head-descrip">
                     <span class="text-general">Necesitas reparar tu Laptop ? </span>
                     <span class="text-general">Instalar Windows en la Computadora ? </span>
