@@ -21,6 +21,22 @@ body {
   font-size: 30px;
 }
 
+/* .menu-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  gap: 50px;
+  border-radius: 0;
+  visibility: hidden;
+  background-color: rgba(43, 74, 83, 0.856);
+} */
+
 .navbar {
   display: flex;
   justify-content: space-between;
