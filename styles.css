@@ -36,6 +36,10 @@ body {
   z-index: 2;
 }
 
+.menu-toggle {
+  display: none;
+}
+
 .menu-container {
   display: flex;
   background-color: rgba(72, 124, 139, 0.664);
