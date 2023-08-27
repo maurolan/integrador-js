@@ -1,4 +1,4 @@
-const articulos = [
+const articulosTMP = [
     { 
         id: 1,
         nombre: "Disco Laptop",

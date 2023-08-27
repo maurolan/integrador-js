@@ -23,9 +23,9 @@
     <!-- MENU TOOGLE -->
     <ul class="menu-toggle" id="menu-toggle">
         <li class="item"><a class="item-a" href="#home">Home</a></li>
-        <li class="item"><a class="item-a" href="#acerca">Acerca</a></li>
         <li class="item"><a class="item-a" href="#articulos">Artículos</a></li>
         <li class="item"><a class="item-a" href="#tecnico">ServTecnico</a></li>
+        <li class="item"><a class="item-a" href="#acerca">Acerca</a></li>
         <li class="item"><a class="item-a" href="#contacto">Contacto</a></li>
     </ul>
 
@@ -34,9 +34,9 @@
         <img class="logo" src="./assets/vglogo.png" alt="logo de Venta de Garage" />
         <ul class="menu-container">
             <li class="item"><a href="#home">Home</a></li>
-            <li class="item"><a href="#acerca">Acerca</a></li>
             <li class="item"><a href="#articulos">Artículos</a></li>
             <li class="item"><a href="#tecnico">ServTecnico</a></li>
+            <li class="item"><a href="#acerca">Acerca</a></li>
             <li class="item"><a href="#contacto">Contacto</a></li>
         </ul>
         <div class="cart-menu-container">
@@ -48,14 +48,15 @@
     <!-- SECCION HERO -->
     <section class="home" id="home">
         <div class="hero-container">
-            <div class="hero-img-container"><img src="./assets/img/homeimg.jpg" alt="" class="hero-img-portada">
+            <div class="hero-img-container"><img src="./assets/img/homeimg.jpg" alt="" class="hero-img-portada"
+                    id="hero-img" />
             </div>
             <div class="hero-info-container">
                 <h1 class="hero-titulo">Venta de Garage</h1>
                 <h3 class="hero-subtitulo">Artículos Usados de Computación</h3>
                 <p class="hero-details">Precios accesibles... son cosas usadas!
                     Cotiza la reparación de tu Compu. </p>
-                <a href="#articulos"><button class="hero-btn">Conoce Más</button></a>
+                <a href="#acerca"><button class="hero-btn">Conoce Más</button></a>
             </div>
         </div>
 
@@ -124,26 +125,22 @@
             <div class="art-cat-btn"><i class="fa-solid fa-laptop"></i> Equipos</div>
         </div>
         <div class="art-container" id="art-container">
-            <!-- cargo 3 al azar de prueba y luego con JS-->
-            <!-- <div class="art-card">
-                <div class="art-img-container"><img class="art-img" src="./assets/img/articles/0002.jpg"
-                        alt="memoria ddr3"></div>
-                <h3 class="art-nombre">Memoria DDR 3</h3>
-                <p class="art-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi
-                    voluptatibus
-                    consectetur doloremque.</p>
-                <div class="art-price-btn-container">
-                    <h2 class="art-price">$150</h2>
-                    <button class="art-btn-add">Agregar</button>
+
+            <!-- CARD de ejemplo 
+                <div class="art-card">
+                    <div class="art-img-container"><img class="art-img" src="./assets/img/articles/0002.jpg" alt="memoria ddr3"></div>
+                    <h3 class="art-nombre">Memoria DDR 3</h3>
+                    <p class="art-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <div class="art-price-btn-container">
+                            <h2 class="art-price">$150</h2>
+                            <button class="art-btn-add">Agregar</button>
+                        </div>
                 </div>
-            </div>
-
-            </div> -->
-
+            -->
 
             <!-- cargo el contenido por el boton ver mas o por categoria por java script -->
         </div>
-        <button class="art-more-btn">Ver más</button>
+        <a href="#articulos"><button class="art-more-btn" id="btn-ver-more">Ver más</button></a>
     </section>
 
 

@@ -63,7 +63,7 @@ const articulos = [
         condicion: "usado",
         categoria: "placas",
         stock: 1,
-        imagen: "./assets/img/articles/0003.png", 
+        imagen: "./assets/img/articles/0017.png", 
     },
     { 
         id: 6,
@@ -198,12 +198,10 @@ const articulos = [
 ];
 
 
-
 // CAPTURA DE ELEMENTOS
 const menuToggleIcon = document.getElementById('menu-toggle-icon');
 const menuToggle = document.getElementById('menu-toggle');
-
-
+const verMasBtn = document.getElementById('btn-ver-more');
 
 
 // // Click menu hamburguesa --> abre el menutoggle
@@ -217,67 +215,245 @@ menuToggle.style.display = 'none';
 });
 
 
+// const generadorArticulo = () => {
 
-const generadorArticulo = () => {
 
+// articulos.map(art => {
 
-articulos.map(art => {
-
-    let articuloCard = document.createElement('div');
-    articuloCard.classList.add('art-card');
+//     let articuloCard = document.createElement('div');
+//     articuloCard.classList.add('art-card');
     
-    let articuloImgContainer = document.createElement('div');
-    articuloImgContainer.classList.add('art-img-container');
+//     let articuloImgContainer = document.createElement('div');
+//     articuloImgContainer.classList.add('art-img-container');
     
-    let articuloImg = document.createElement('img');
-    articuloImg.classList.add('art-img');
-    articuloImg.src = art.imagen;
-    articuloImg.alt = art.nombre;
+//     let articuloImg = document.createElement('img');
+//     articuloImg.classList.add('art-img');
+//     articuloImg.src = art.imagen;
+//     articuloImg.alt = art.nombre;
     
-    let articuloNombre = document.createElement('h3');
-    articuloNombre.classList.add('art-nombre');
-    articuloNombre.innerText = `${art.nombre} - ${art.marca}` ;
+//     let articuloNombre = document.createElement('h3');
+//     articuloNombre.classList.add('art-nombre');
+//     articuloNombre.innerText = `${art.nombre} - ${art.marca}` ;
     
-    let articuloDescription = document.createElement('p');
-    articuloDescription.classList.add('art-description');
-    articuloDescription.innerText = `${art.descripcion} ${art.detalle} ${art.modelo}`;
+//     let articuloDescription = document.createElement('p');
+//     articuloDescription.classList.add('art-description');
+//     articuloDescription.innerText = `${art.descripcion} ${art.detalle} ${art.modelo}`;
     
-    let artPriceBtn = document.createElement('div');
-    artPriceBtn.classList.add('art-price-btn-container');
+//     let artPriceBtn = document.createElement('div');
+//     artPriceBtn.classList.add('art-price-btn-container');
     
-    let artPrice = document.createElement('h2');
-    artPrice.classList.add('art-price');
-    artPrice.innerText = `$ ${art.precio}` ;
+//     let artPrice = document.createElement('h2');
+//     artPrice.classList.add('art-price');
+//     artPrice.innerText = `$ ${art.precio}` ;
     
-    let artBtn = document.createElement('button');
-    artBtn.classList.add('art-btn-add');
-    artBtn.innerText = 'Agregar';
+//     let artBtn = document.createElement('button');
+//     artBtn.classList.add('art-btn-add');
+//     artBtn.innerText = 'Agregar';
 
 
-    articuloImgContainer.appendChild(articuloImg);
+//     articuloImgContainer.appendChild(articuloImg);
     
-    articuloCard.appendChild(articuloImgContainer);
-    articuloCard.appendChild(articuloNombre);
-    articuloCard.appendChild(articuloDescription);
+//     articuloCard.appendChild(articuloImgContainer);
+//     articuloCard.appendChild(articuloNombre);
+//     articuloCard.appendChild(articuloDescription);
 
-    artPriceBtn.appendChild(artPrice);
-    artPriceBtn.appendChild(artBtn);
+//     artPriceBtn.appendChild(artPrice);
+//     artPriceBtn.appendChild(artBtn);
 
-    articuloCard.appendChild(artPriceBtn);
+//     articuloCard.appendChild(artPriceBtn);
 
-    const contenedorArticulos = document.getElementById('art-container');
+//     const contenedorArticulos = document.getElementById('art-container');
 
-    contenedorArticulos.appendChild(articuloCard);
+//     contenedorArticulos.appendChild(articuloCard);
 
-});
+// });
 
+// };
+
+
+// const rotarImagenesHero = () => {
+//     const heroImg = document.getElementById('hero-img');
+//     const imgs = ['homeimg2.jpg','homeimg3.jpg','homeimg4.jpg','homeimg.jpg'];
+// let i=0;
+//     setTimeout(()=>{
+//         heroImg.setAttribute('src',`./assets/img/${imgs[i]}`);
+//         console.log(heroImg.src);
+//     },4000);
+    
+// };
+
+
+const sombrearBotonVerMas = (control) => {
+    // anulo el boton ver mas
+//    if(control == articulos.length) verMasBtn.classList.toggle('ocultar');
+verMasBtn.classList.toggle('ocultar');
+};
+
+
+const generarIndicesAleatorios = () => {
+    
+    indicesGenerados = [];
+
+while (indicesGenerados.length < 3) {
+
+    let indice = Math.floor(Math.random() * (articulos.length - 1) + 1 ); //genero numero aleatorio entre 0 y longitud de articulos
+
+    if (indicesGenerados.length === 0) { //si el el arreglo esta vacion el primero lo pusheo
+
+        indicesGenerados.push(indice);
+
+    } else {  // sino recorro el indice para comparar si el generado ya existe
+       
+        for(num of indicesGenerados){
+            if (indice !== num){ //si no existe
+                indicesGenerados.push(indice);  //lo agrego
+                if (indicesGenerados.length === 3) break;
+            } 
+        }
+
+    }
+} 
+
+return indicesGenerados;
+
+};
+
+
+
+const articulosIniciales = () => {
+
+    let indices = generarIndicesAleatorios();
+
+for (let i=0; i<3 ; i++){
+
+    
+    art = articulos[indices[i]];
+
+        let articuloCard = document.createElement('div');
+        articuloCard.classList.add('art-card');
+        
+        let articuloImgContainer = document.createElement('div');
+        articuloImgContainer.classList.add('art-img-container');
+        
+        let articuloImg = document.createElement('img');
+        articuloImg.classList.add('art-img');
+        articuloImg.src = art.imagen;
+        articuloImg.alt = art.nombre;
+        
+        let articuloNombre = document.createElement('h3');
+        articuloNombre.classList.add('art-nombre');
+        articuloNombre.innerText = `${art.nombre} - ${art.marca}` ;
+        
+        let articuloDescription = document.createElement('p');
+        articuloDescription.classList.add('art-description');
+        articuloDescription.innerText = `${art.descripcion} ${art.detalle} ${art.modelo}`;
+        
+        let artPriceBtn = document.createElement('div');
+        artPriceBtn.classList.add('art-price-btn-container');
+        
+        let artPrice = document.createElement('h2');
+        artPrice.classList.add('art-price');
+        artPrice.innerText = `$ ${art.precio}` ;
+        
+        let artBtn = document.createElement('button');
+        artBtn.classList.add('art-btn-add');
+        artBtn.innerText = 'Agregar';
+    
+    
+        articuloImgContainer.appendChild(articuloImg);
+        
+        articuloCard.appendChild(articuloImgContainer);
+        articuloCard.appendChild(articuloNombre);
+        articuloCard.appendChild(articuloDescription);
+    
+        artPriceBtn.appendChild(artPrice);
+        artPriceBtn.appendChild(artBtn);
+    
+        articuloCard.appendChild(artPriceBtn);
+    
+        const contenedorArticulos = document.getElementById('art-container');
+    
+        contenedorArticulos.appendChild(articuloCard);
+    
+    
+}    
+};
+
+
+const cargarMasArticulos = () => {
+
+
+// let childDelete = document.querySelector('#art-container');
+
+// childDelete.innerHTML = '';
+
+    for (let i=0; i < articulos.length ; i++){
+
+        art = articulos[i];
+
+            let articuloCard = document.createElement('div');
+            articuloCard.classList.add('art-card');
+            
+            let articuloImgContainer = document.createElement('div');
+            articuloImgContainer.classList.add('art-img-container');
+            
+            let articuloImg = document.createElement('img');
+            articuloImg.classList.add('art-img');
+            articuloImg.src = art.imagen;
+            articuloImg.alt = art.nombre;
+            
+            let articuloNombre = document.createElement('h3');
+            articuloNombre.classList.add('art-nombre');
+            articuloNombre.innerText = `${art.nombre} - ${art.marca}` ;
+            
+            let articuloDescription = document.createElement('p');
+            articuloDescription.classList.add('art-description');
+            articuloDescription.innerText = `${art.descripcion} ${art.detalle} ${art.modelo}`;
+            
+            let artPriceBtn = document.createElement('div');
+            artPriceBtn.classList.add('art-price-btn-container');
+            
+            let artPrice = document.createElement('h2');
+            artPrice.classList.add('art-price');
+            artPrice.innerText = `$ ${art.precio}` ;
+            
+            let artBtn = document.createElement('button');
+            artBtn.classList.add('art-btn-add');
+            artBtn.innerText = 'Agregar';
+        
+        
+            articuloImgContainer.appendChild(articuloImg);
+            
+            articuloCard.appendChild(articuloImgContainer);
+            articuloCard.appendChild(articuloNombre);
+            articuloCard.appendChild(articuloDescription);
+        
+            artPriceBtn.appendChild(artPrice);
+            artPriceBtn.appendChild(artBtn);
+        
+            articuloCard.appendChild(artPriceBtn);
+        
+            const contenedorArticulos = document.getElementById('art-container');
+            contenedorArticulos.appendChild(articuloCard);
+    }   
+    
+    sombrearBotonVerMas();
 };
 
 
 
 const init = () => {
 
-generadorArticulo();
+// generadorArticulo();
+
+// rotarImagenesHero();
+
+articulosIniciales();
+
+verMasBtn.addEventListener('click',cargarMasArticulos);
+
+
+
 
 
 

@@ -653,3 +653,9 @@ footer {
 .fa-brands:hover {
   color: #d1cdcd;
 }
+
+/* clases asociadas a JS */
+
+.ocultar {
+  visibility: hidden;
+}
