@@ -337,7 +337,7 @@ menuCartIcon.addEventListener('click',()=>{
 });
 
 
-// Funcion que genera las cards
+// Funcion que genera las cards a partir del filtro aplicado
 const generarCards = (artCatFiltered) => {
    
     artCatFiltered.map(art => {
@@ -392,72 +392,11 @@ const generarCards = (artCatFiltered) => {
 
 };
 
-// const generadorArticulo = () => {
+const agregarArticuloCarrito = (idArticulo) => {
 
+console.log('funcion en desarrollo agregarArticuloCarrito()');
 
-// articulos.map(art => {
-
-//     let articuloCard = document.createElement('div');
-//     articuloCard.classList.add('art-card');
-    
-//     let articuloImgContainer = document.createElement('div');
-//     articuloImgContainer.classList.add('art-img-container');
-    
-//     let articuloImg = document.createElement('img');
-//     articuloImg.classList.add('art-img');
-//     articuloImg.src = art.imagen;
-//     articuloImg.alt = art.nombre;
-    
-//     let articuloNombre = document.createElement('h3');
-//     articuloNombre.classList.add('art-nombre');
-//     articuloNombre.innerText = `${art.nombre} - ${art.marca}` ;
-    
-//     let articuloDescription = document.createElement('p');
-//     articuloDescription.classList.add('art-description');
-//     articuloDescription.innerText = `${art.descripcion} ${art.detalle} ${art.modelo}`;
-    
-//     let artPriceBtn = document.createElement('div');
-//     artPriceBtn.classList.add('art-price-btn-container');
-    
-//     let artPrice = document.createElement('h2');
-//     artPrice.classList.add('art-price');
-//     artPrice.innerText = `$ ${art.precio}` ;
-    
-//     let artBtn = document.createElement('button');
-//     artBtn.classList.add('art-btn-add');
-//     artBtn.innerText = 'Agregar';
-
-
-//     articuloImgContainer.appendChild(articuloImg);
-    
-//     articuloCard.appendChild(articuloImgContainer);
-//     articuloCard.appendChild(articuloNombre);
-//     articuloCard.appendChild(articuloDescription);
-
-//     artPriceBtn.appendChild(artPrice);
-//     artPriceBtn.appendChild(artBtn);
-
-//     articuloCard.appendChild(artPriceBtn);
-
-//     const contenedorArticulos = document.getElementById('art-container');
-
-//     contenedorArticulos.appendChild(articuloCard);
-
-// });
-
-// };
-
-
-// const rotarImagenesHero = () => {
-//     const heroImg = document.getElementById('hero-img');
-//     const imgs = ['homeimg2.jpg','homeimg3.jpg','homeimg4.jpg','homeimg.jpg'];
-// let i=0;
-//     setTimeout(()=>{
-//         heroImg.setAttribute('src',`./assets/img/${imgs[i]}`);
-//         console.log(heroImg.src);
-//     },4000);
-    
-// };
+};
 
 
 // FUNCION QUE BORRAR LAS CARDS CARGADAS
