@@ -93,11 +93,9 @@ body {
   justify-content: flex-start;
   align-items: center;
   padding: 10px 0 20px 0;
-  /* border: crimson 1px solid; */
   background-color: #1f1d1d;
-  /* background: linear-gradient(to top, #121e3c, var(--background)); */
   width: 350px;
-  /* height: 600px; */
+  height: 60vh;
   border-radius: 0 0 0 20px;
   position: fixed;
   top: 75px;
@@ -105,10 +103,8 @@ body {
   visibility: hidden;
   overflow-y: scroll;
   z-index: 2;
-
-  /* border-left: 1px solid var(--nav-bg); */
-  /* height: calc(100vh - 65px); */
-
+  border-left: 2px solid crimson;
+  height: calc(100vh - 65px);
   transform: translate(150%);
   transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
 }
@@ -120,7 +116,7 @@ body {
   align-items: flex-start;
   gap: 5px;
   width: 90%;
-  border: #0c606e 1px solid;
+  /* border: #0c606e 1px solid; */
   border-radius: 5px;
   padding: 5px 0;
   margin: 0 0 20px 0;
@@ -131,7 +127,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 2px;
-  border: crimson 1px solid;
+  /* border: crimson 1px solid; */
   background-color: #666;
   width: 100%;
   height: 120px;

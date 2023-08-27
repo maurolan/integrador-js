@@ -288,6 +288,8 @@ const articulos = [
     }
 ];
 
+// VARIABLES AUXILIARES
+let banderaCart = false;
 
 // CAPTURA DE ELEMENTOS
 const menuToggleIcon = document.getElementById('menu-toggle-icon');
@@ -321,20 +323,20 @@ menuToggle.style.display = 'none';
 
 
 
-// // Click MENU CART --> abre el carrito
+// // Click MENU CART --> abre y cierra el carrito
 menuCartIcon.addEventListener('click',()=>{
-    CartContainer.style.visibility = 'visible';
-    CartContainer.style.transform = 'translate(0%)';
-    
-
+    if (!banderaCart){
+        CartContainer.style.visibility = 'visible';
+        CartContainer.style.transform = 'translate(0%)';
+        banderaCart = true;
+    }else{
+        CartContainer.style.visibility = 'hidden';
+        CartContainer.style.transform = 'translate(150%)';
+        banderaCart = false;
+    }
 });
 
 
-// // Click MENU CART --> cierra el carrito
-menuCartIcon.addEventListener('dblclick',()=>{
-    CartContainer.style.visibility = 'hidden';
-    CartContainer.style.transform = 'translate(150%)';
-});
 
 
 
