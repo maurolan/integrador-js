@@ -337,18 +337,10 @@ menuCartIcon.addEventListener('click',()=>{
 });
 
 
-
-
-
-
-
-
-
-
-
-const generarCards = (artCatMem) => {
+// Funcion que genera las cards
+const generarCards = (artCatFiltered) => {
    
-    artCatMem.map(art => {
+    artCatFiltered.map(art => {
 
     let articuloCard = document.createElement('div');
     articuloCard.classList.add('art-card');
@@ -468,12 +460,14 @@ const generarCards = (artCatMem) => {
 // };
 
 
+// FUNCION QUE BORRAR LAS CARDS CARGADAS
 const limpiarArticulos = () => {
     let childDelete = document.querySelector('#art-container');
     childDelete.innerHTML = '';
 };
 
 
+// ELIMINA EL BOTON VER MAS EN ARTICULOS
 const sombrearBotonVerMas = (control) => {
     // anulo el boton ver mas
 //    if(control == articulos.length) verMasBtn.classList.toggle('ocultar');
@@ -481,6 +475,7 @@ verMasBtn.classList.toggle('ocultar');
 };
 
 
+// FUNCIONES AUXILIARES
 const generarIndicesAleatorios = () => {
     
     indicesGenerados = [];
@@ -510,7 +505,7 @@ return indicesGenerados;
 };
 
 
-
+// Funcion que genera 3 cards al azar iniciales
 const articulosIniciales = () => {
 
     let indices = generarIndicesAleatorios();
@@ -571,6 +566,7 @@ for (let i=0; i<3 ; i++){
 };
 
 
+// funcion que despliega mas cards al presionar ver mas
 const cargarMasArticulos = () => {
 
     for (let i=0; i < articulos.length ; i++){
@@ -628,59 +624,62 @@ const cargarMasArticulos = () => {
 };
 
 
-
+// FUNCION INICIALIZADORA
 const init = () => {
 
-    // generadorArticulo();
+    // generadorArticulo();  USAR?? 
 
-    // rotarImagenesHero();
+    // rotarImagenesHero();  VER DESPUES DESPLAZAR IMAGENES EN HOME
+
+
 
     articulosIniciales();
 
-    // Ver mas Articulos
+
+    // escuchador boton  VER MAS  Articulos
     verMasBtn.addEventListener('click',cargarMasArticulos);
 
 
     // Botones de Filtrados de Articulos
     memorias.addEventListener('click',()=>{
         limpiarArticulos();
-        const artCatMem = articulos.filter((articulo)=> articulo.categoria === memorias.id);
-        generarCards(artCatMem);
+        const artCatFiltered = articulos.filter((articulo)=> articulo.categoria === memorias.id);
+        generarCards(artCatFiltered);
     });
     video.addEventListener('click',()=>{
         limpiarArticulos();
-        const artCatMem = articulos.filter((articulo)=> articulo.categoria === video.id);
-        generarCards(artCatMem);
+        const artCatFiltered = articulos.filter((articulo)=> articulo.categoria === video.id);
+        generarCards(artCatFiltered);
     });
     storage.addEventListener('click',()=>{
         limpiarArticulos();
-        const artCatMem = articulos.filter((articulo)=> articulo.categoria === storage.id);
-        generarCards(artCatMem);
+        const artCatFiltered = articulos.filter((articulo)=> articulo.categoria === storage.id);
+        generarCards(artCatFiltered);
     });
     tools.addEventListener('click',()=>{
         limpiarArticulos();
-        const artCatMem = articulos.filter((articulo)=> articulo.categoria === tools.id);
-        generarCards(artCatMem);
+        const artCatFiltered = articulos.filter((articulo)=> articulo.categoria === tools.id);
+        generarCards(artCatFiltered);
     });
     perifericos.addEventListener('click',()=>{
         limpiarArticulos();
-        const artCatMem = articulos.filter((articulo)=> articulo.categoria === perifericos.id);
-        generarCards(artCatMem);
+        const artCatFiltered = articulos.filter((articulo)=> articulo.categoria === perifericos.id);
+        generarCards(artCatFiltered);
     });
     electronica.addEventListener('click',()=>{
         limpiarArticulos();
-        const artCatMem = articulos.filter((articulo)=> articulo.categoria === electronica.id);
-        generarCards(artCatMem);
+        const artCatFiltered = articulos.filter((articulo)=> articulo.categoria === electronica.id);
+        generarCards(artCatFiltered);
     });
     placas.addEventListener('click',()=>{
         limpiarArticulos();
-        const artCatMem = articulos.filter((articulo)=> articulo.categoria === placas.id);
-        generarCards(artCatMem);
+        const artCatFiltered = articulos.filter((articulo)=> articulo.categoria === placas.id);
+        generarCards(artCatFiltered);
     });
     equipos.addEventListener('click',()=>{
         limpiarArticulos();
-        const artCatMem = articulos.filter((articulo)=> articulo.categoria === equipos.id);
-        generarCards(artCatMem);
+        const artCatFiltered = articulos.filter((articulo)=> articulo.categoria === equipos.id);
+        generarCards(artCatFiltered);
     });
 
 
