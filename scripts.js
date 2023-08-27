@@ -152,7 +152,7 @@ const articulos = [
         modelo: "UT 33B",
         detalle: "Alimentación: AA 1,5V × 2, pantalla: 66 x 51mm",
         condicion: "usado",
-        categoria: "tools",
+        categoria: "electronica",
         stock: 2,
         imagen: "./assets/img/articles/0012.png", 
     },
@@ -203,6 +203,16 @@ const menuToggleIcon = document.getElementById('menu-toggle-icon');
 const menuToggle = document.getElementById('menu-toggle');
 const verMasBtn = document.getElementById('btn-ver-more');
 
+// categorias buttons
+const memorias = document.getElementById('memorias');
+const video = document.getElementById('video');
+const storage = document.getElementById('storage');
+const tools = document.getElementById('tools');
+const perifericos = document.getElementById('perifericos');
+const electronica = document.getElementById('electronica');
+const placas = document.getElementById('placas');
+const equipos = document.getElementById('equipos');
+
 
 // // Click menu hamburguesa --> abre el menutoggle
 menuToggleIcon.addEventListener('click',()=>{
@@ -214,6 +224,61 @@ menuToggle.addEventListener('click',()=>{
 menuToggle.style.display = 'none';
 });
 
+
+
+const generarCards = (artCatMem) => {
+   
+    artCatMem.map(art => {
+
+    let articuloCard = document.createElement('div');
+    articuloCard.classList.add('art-card');
+    
+    let articuloImgContainer = document.createElement('div');
+    articuloImgContainer.classList.add('art-img-container');
+    
+    let articuloImg = document.createElement('img');
+    articuloImg.classList.add('art-img');
+    articuloImg.src = art.imagen;
+    articuloImg.alt = art.nombre;
+    
+    let articuloNombre = document.createElement('h3');
+    articuloNombre.classList.add('art-nombre');
+    articuloNombre.innerText = `${art.nombre} - ${art.marca}` ;
+    
+    let articuloDescription = document.createElement('p');
+    articuloDescription.classList.add('art-description');
+    articuloDescription.innerText = `${art.descripcion} ${art.detalle} ${art.modelo}`;
+    
+    let artPriceBtn = document.createElement('div');
+    artPriceBtn.classList.add('art-price-btn-container');
+    
+    let artPrice = document.createElement('h2');
+    artPrice.classList.add('art-price');
+    artPrice.innerText = `$ ${art.precio}` ;
+    
+    let artBtn = document.createElement('button');
+    artBtn.classList.add('art-btn-add');
+    artBtn.innerText = 'Agregar';
+
+
+    articuloImgContainer.appendChild(articuloImg);
+    
+    articuloCard.appendChild(articuloImgContainer);
+    articuloCard.appendChild(articuloNombre);
+    articuloCard.appendChild(articuloDescription);
+
+    artPriceBtn.appendChild(artPrice);
+    artPriceBtn.appendChild(artBtn);
+
+    articuloCard.appendChild(artPriceBtn);
+
+    const contenedorArticulos = document.getElementById('art-container');
+
+    contenedorArticulos.appendChild(articuloCard);
+
+});
+
+};
 
 // const generadorArticulo = () => {
 
@@ -281,6 +346,12 @@ menuToggle.style.display = 'none';
 //     },4000);
     
 // };
+
+
+const limpiarArticulos = () => {
+    let childDelete = document.querySelector('#art-container');
+    childDelete.innerHTML = '';
+};
 
 
 const sombrearBotonVerMas = (control) => {
@@ -382,11 +453,6 @@ for (let i=0; i<3 ; i++){
 
 const cargarMasArticulos = () => {
 
-
-// let childDelete = document.querySelector('#art-container');
-
-// childDelete.innerHTML = '';
-
     for (let i=0; i < articulos.length ; i++){
 
         art = articulos[i];
@@ -437,23 +503,65 @@ const cargarMasArticulos = () => {
             contenedorArticulos.appendChild(articuloCard);
     }   
     
-    sombrearBotonVerMas();
+    // sombrearBotonVerMas();
+
 };
 
 
 
 const init = () => {
 
-// generadorArticulo();
+    // generadorArticulo();
 
-// rotarImagenesHero();
+    // rotarImagenesHero();
 
-articulosIniciales();
+    articulosIniciales();
 
-verMasBtn.addEventListener('click',cargarMasArticulos);
+    // Ver mas Articulos
+    verMasBtn.addEventListener('click',cargarMasArticulos);
 
 
-
+    // Botones de Filtrados de Articulos
+    memorias.addEventListener('click',()=>{
+        limpiarArticulos();
+        const artCatMem = articulos.filter((articulo)=> articulo.categoria === memorias.id);
+        generarCards(artCatMem);
+    });
+    video.addEventListener('click',()=>{
+        limpiarArticulos();
+        const artCatMem = articulos.filter((articulo)=> articulo.categoria === video.id);
+        generarCards(artCatMem);
+    });
+    storage.addEventListener('click',()=>{
+        limpiarArticulos();
+        const artCatMem = articulos.filter((articulo)=> articulo.categoria === storage.id);
+        generarCards(artCatMem);
+    });
+    tools.addEventListener('click',()=>{
+        limpiarArticulos();
+        const artCatMem = articulos.filter((articulo)=> articulo.categoria === tools.id);
+        generarCards(artCatMem);
+    });
+    perifericos.addEventListener('click',()=>{
+        limpiarArticulos();
+        const artCatMem = articulos.filter((articulo)=> articulo.categoria === perifericos.id);
+        generarCards(artCatMem);
+    });
+    electronica.addEventListener('click',()=>{
+        limpiarArticulos();
+        const artCatMem = articulos.filter((articulo)=> articulo.categoria === electronica.id);
+        generarCards(artCatMem);
+    });
+    placas.addEventListener('click',()=>{
+        limpiarArticulos();
+        const artCatMem = articulos.filter((articulo)=> articulo.categoria === placas.id);
+        generarCards(artCatMem);
+    });
+    equipos.addEventListener('click',()=>{
+        limpiarArticulos();
+        const artCatMem = articulos.filter((articulo)=> articulo.categoria === equipos.id);
+        generarCards(artCatMem);
+    });
 
 
 
