@@ -298,6 +298,8 @@ const menuToggle = document.getElementById('menu-toggle');
 const menuCartIcon = document.getElementById('menu-cart');
 const CartContainer = document.getElementById('cart-container');
 
+const heroImagen = document.getElementById('hero-img');
+
 const verMasBtn = document.getElementById('btn-ver-more');
 
 // categorias buttons
@@ -320,7 +322,6 @@ menuToggleIcon.addEventListener('click',()=>{
 menuToggle.addEventListener('click',()=>{
 menuToggle.style.display = 'none';
 });
-
 
 
 // // Click MENU CART --> abre y cierra el carrito
@@ -392,10 +393,29 @@ const generarCards = (artCatFiltered) => {
 
 };
 
+
+
+// FUNCION QUE ROTAS LAS IMAGENES CADA CIERTO TIEMPO EN HOME
+
+const rotadorImagenHome = () => {
+let imagen = 1;
+    setInterval(() => {
+        // heroImagen.src = ''
+        heroImagen.setAttribute('src',`./assets/img/homeimg${imagen}.jpg`)
+        // console.log(imagen);
+        imagen++;
+        if (imagen == 8){
+            imagen = 1 ;
+        } 
+    }, 5000);
+
+}; 
+
+
+
+// FUNCION QUE AGREGA ARTICULO AL CARRITO
 const agregarArticuloCarrito = (idArticulo) => {
-
-console.log('funcion en desarrollo agregarArticuloCarrito()');
-
+    console.log('funcion en desarrollo agregarArticuloCarrito()');
 };
 
 
@@ -571,12 +591,14 @@ const init = () => {
     // rotarImagenesHero();  VER DESPUES DESPLAZAR IMAGENES EN HOME
 
 
-
     articulosIniciales();
 
 
     // escuchador boton  VER MAS  Articulos
     verMasBtn.addEventListener('click',cargarMasArticulos);
+
+
+    rotadorImagenHome();
 
 
     // Botones de Filtrados de Articulos
@@ -620,9 +642,6 @@ const init = () => {
         const artCatFiltered = articulos.filter((articulo)=> articulo.categoria === equipos.id);
         generarCards(artCatFiltered);
     });
-
-
-
 
 };
 
