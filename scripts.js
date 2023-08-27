@@ -324,12 +324,16 @@ menuToggle.style.display = 'none';
 // // Click MENU CART --> abre el carrito
 menuCartIcon.addEventListener('click',()=>{
     CartContainer.style.visibility = 'visible';
+    CartContainer.style.transform = 'translate(0%)';
+    
+
 });
 
 
 // // Click MENU CART --> cierra el carrito
 menuCartIcon.addEventListener('dblclick',()=>{
     CartContainer.style.visibility = 'hidden';
+    CartContainer.style.transform = 'translate(150%)';
 });
 
 

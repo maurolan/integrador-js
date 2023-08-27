@@ -92,16 +92,25 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding-top: 10px;
-  border: crimson 1px solid;
+  padding: 10px 0 20px 0;
+  /* border: crimson 1px solid; */
   background-color: #1f1d1d;
+  /* background: linear-gradient(to top, #121e3c, var(--background)); */
   width: 350px;
-  height: 600px;
-  border-radius: 20px 0 0 20px;
+  /* height: 600px; */
+  border-radius: 0 0 0 20px;
   position: fixed;
   top: 75px;
   right: 0;
   visibility: hidden;
+  overflow-y: scroll;
+  z-index: 2;
+
+  /* border-left: 1px solid var(--nav-bg); */
+  /* height: calc(100vh - 65px); */
+
+  transform: translate(150%);
+  transition: all 0.5s cubic-bezier(0.92, 0.01, 0.35, 0.99);
 }
 
 .cart-items-container {
