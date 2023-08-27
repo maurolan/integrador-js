@@ -404,10 +404,10 @@ let imagen = 1;
         heroImagen.setAttribute('src',`./assets/img/homeimg${imagen}.jpg`)
         // console.log(imagen);
         imagen++;
-        if (imagen == 8){
+        if (imagen == 7){
             imagen = 1 ;
         } 
-    }, 5000);
+    }, 20000);
 
 }; 
 
