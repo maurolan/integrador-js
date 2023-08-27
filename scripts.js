@@ -292,6 +292,10 @@ const articulos = [
 // CAPTURA DE ELEMENTOS
 const menuToggleIcon = document.getElementById('menu-toggle-icon');
 const menuToggle = document.getElementById('menu-toggle');
+
+const menuCartIcon = document.getElementById('menu-cart');
+const CartContainer = document.getElementById('cart-container');
+
 const verMasBtn = document.getElementById('btn-ver-more');
 
 // categorias buttons
@@ -314,6 +318,25 @@ menuToggleIcon.addEventListener('click',()=>{
 menuToggle.addEventListener('click',()=>{
 menuToggle.style.display = 'none';
 });
+
+
+
+// // Click MENU CART --> abre el carrito
+menuCartIcon.addEventListener('click',()=>{
+    CartContainer.style.visibility = 'visible';
+});
+
+
+// // Click MENU CART --> cierra el carrito
+menuCartIcon.addEventListener('dblclick',()=>{
+    CartContainer.style.visibility = 'hidden';
+});
+
+
+
+
+
+
 
 
 

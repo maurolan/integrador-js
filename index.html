@@ -17,10 +17,10 @@
     <title>Venta de Garage</title>
 </head>
 
-<body>
+<body id="body">
 
 
-    <!-- MENU TOOGLE -->
+    <!-- MENU TOOGLE HAMBURGUESA -->
     <ul class="menu-toggle" id="menu-toggle">
         <li class="item"><a class="item-a" href="#home">Home</a></li>
         <li class="item"><a class="item-a" href="#articulos">Artículos</a></li>
@@ -29,8 +29,61 @@
         <li class="item"><a class="item-a" href="#contacto">Contacto</a></li>
     </ul>
 
+    <!-- MENU CARRITO -->
+    <div class="cart-container" id="cart-container">
+        <div class="cart-items-container">
+            <!-- AGREGAR ITEMS POR JS -->
+            <!-- ITEM DE EJEMPLO -->
+            <div class="item-cart">
+                <img class="item-cart-img" src="./assets/img/articles/0009.png" alt="">
+                <div class="item-cart-info">
+                    <h3 class="item-cart-title">ITEM 1</h3>
+                    <p class="item-cart-price">$ 180000</p>
+                </div>
+                <div class="item-cart-toggle">
+                    <p class="item-cart-more-btn">+</p>
+                    <p class="item-cart-minus-btn">-</p>
+                    <p class="item-cart-del-btn">D</p>
+                </div>
+            </div>
+
+            <div class="item-cart">
+                <img class="item-cart-img" src="./assets/img/articles/0002.png" alt="">
+                <div class="item-cart-info">
+                    <h3 class="item-cart-title">ITEM 2</h3>
+                    <p class="item-cart-price">$ 6000</p>
+                </div>
+                <div class="item-cart-toggle">
+                    <p class="item-cart-more-btn">+</p>
+                    <p class="item-cart-minus-btn">-</p>
+                    <p class="item-cart-del-btn">D</p>
+                </div>
+            </div>
+
+            <div class="item-cart">
+                <img class="item-cart-img" src="./assets/img/articles/0012.png" alt="">
+                <div class="item-cart-info">
+                    <h3 class="item-cart-title">ITEM 3</h3>
+                    <p class="item-cart-price">$ 10000</p>
+                </div>
+                <div class="item-cart-toggle">
+                    <p class="item-cart-more-btn">+</p>
+                    <p class="item-cart-minus-btn">-</p>
+                    <p class="item-cart-del-btn">D</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="cart-buy-container">
+            <div class="cart-buy-btn-container">
+                <button class="buy-cart-btn" id="buy-cart-btn">COMPRAR</button>
+                <button class="clear-cart-btn" id="clear-cart-btn">VACIAR</button>
+            </div>
+        </div>
+    </div>
+
     <!-- ENCABEZADO y NAVbar -->
-    <header class="navbar">
+    <header class="navbar" id="navbar">
         <img class="logo" src="./assets/vglogo.png" alt="logo de Venta de Garage" />
         <ul class="menu-container">
             <li class="item"><a href="#home">Home</a></li>
@@ -243,11 +296,21 @@ Deberán utilizar buenas prácticas a la hora de estructurar y organizar el cód
 
 👉 Deberá utilizar localStorage, para persistir datos en el sitio (productos o noticias guardadas).
 
+
+
 👉 La sección de productos o noticias deberá renderizarse desde JS. No podrán codear cada producto/noticia en el archivo HTML.
+
+
+
 
 👉 La sección de contacto deberá tener un formulario con validación incluida, mostrando tanto los errores como un mensaje de éxito si pasa las validaciones.
 
+
+
 👉 El sitio debe ser responsivo y tener menú hamburguesa (funcional, realizado con js) en las resoluciones (mobile, tablet, etc.) que corresponda.
+
+
+
 
 👉 OPCIONAL: Si conocen alguna API de Productos/Noticias que quieran utilizar en lugar de traer los datos  desde un archivo de JS, pueden hacerlo.
 
