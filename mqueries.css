@@ -1,3 +1,4 @@
+/*/////////// 768 //////////////////////*/
 @media (max-width: 768px) {
   .menu-container {
     gap: 10px;
@@ -11,6 +12,8 @@
     font-size: 3em;
   }
 }
+
+/*/////////// 650 //////////////////*/
 
 @media (max-width: 650px) {
   .menu-container {
@@ -54,6 +57,8 @@
     border-left: none;
   }
 }
+
+/*/////////// 564 //////////////////*/
 
 @media (max-width: 564px) {
   .hero-titulo {
@@ -104,6 +109,14 @@
     text-align: center;
   }
 
+  .tecnico-title {
+    font-size: 2.5em;
+  }
+
+  .tecnico-head-img {
+    width: 90%;
+  }
+
   .tecnico-head-btn {
     width: 200px;
     font-size: 1.3em;
@@ -111,7 +124,7 @@
   }
 
   .contacto-form-title {
-    font-size: 1.8em;
+    font-size: 2.8em;
   }
 
   .footer-icon-container {
