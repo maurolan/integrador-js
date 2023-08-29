@@ -395,6 +395,35 @@ let itemCartInfo = document.createElement('div');
 itemCartInfo.classList.add('item-cart-info'); // a esta clase le appendeo itemCartTitle y itemCartPrice
 
 
+let itemCartTitle = document.createElement('h3');
+itemCartTitle.classList.add('item-cart-title');
+itemCartTitle.innerText = art.nombre; 
+
+
+let itemCartPrice = document.createElement('p');
+itemCartPrice.classList.add('item-cart-price');
+itemCartTitle.innerText = art.precio; 
+
+let itemCartToggle = document.createElement('div');
+itemCartToggle.classList.add('item-cart-toggle'); // a esta clase le appendeo los 3 'parrafos'
+
+let itemCartMoreBtn = document.createElement('p');
+itemCartMoreBtn.classList.add('item-cart-more-btn');
+itemCartMoreBtn.innerText = '+';
+
+let itemCartMinusBtn = document.createElement('p');
+itemCartMinusBtn.classList.add('item-cart-minus-btn');
+itemCartMinusBtn.innerText = '-';
+
+let itemCartDelBtn = document.createElement('p');
+itemCartDelBtn.classList.add('item-cart-del-btn');
+itemCartDelBtn.innerText = 'D';
+
+itemCartToggle.appendChild(itemCartMoreBtn);
+itemCartToggle.appendChild(itemCartMinusBtn);
+itemCartToggle.appendChild(itemCartDelBtn);
+
+itemCartInfo.appendChild(itemCartTitle);
 itemCartInfo.appendChild(itemCartPrice);
 
 itemCart.appendChild(itemCartImg);
@@ -490,3 +519,224 @@ const limpiarArticulos = () => {
 
 // ELIMINA EL BOTON VER MAS EN ARTICULOS
 const sombrearBotonVerMas = (control) => {
+    // anulo el boton ver mas
+//    if(control == articulos.length) verMasBtn.classList.toggle('ocultar');
+verMasBtn.classList.toggle('ocultar');
+};
+
+
+// FUNCIONES AUXILIARES
+const generarIndicesAleatorios = () => {
+    
+    indicesGenerados = [];
+
+while (indicesGenerados.length < 3) {
+
+    let indice = Math.floor(Math.random() * (articulos.length - 1) + 1 ); //genero numero aleatorio entre 0 y longitud de articulos
+
+    if (indicesGenerados.length === 0) { //si el el arreglo esta vacion el primero lo pusheo
+
+        indicesGenerados.push(indice);
+
+    } else {  // sino recorro el indice para comparar si el generado ya existe
+       
+        for(num of indicesGenerados){
+            if (indice !== num){ //si no existe
+                indicesGenerados.push(indice);  //lo agrego
+                if (indicesGenerados.length === 3) break;
+            } 
+        }
+
+    }
+} 
+
+return indicesGenerados;
+
+};
+
+
+// Funcion que genera 3 cards al azar iniciales
+const articulosIniciales = () => {
+
+    let indices = generarIndicesAleatorios();
+
+for (let i=0; i<3 ; i++){
+
+    
+    art = articulos[indices[i]];
+
+        let articuloCard = document.createElement('div');
+        articuloCard.classList.add('art-card');
+        
+        let articuloImgContainer = document.createElement('div');
+        articuloImgContainer.classList.add('art-img-container');
+        
+        let articuloImg = document.createElement('img');
+        articuloImg.classList.add('art-img');
+        articuloImg.src = art.imagen;
+        articuloImg.alt = art.nombre;
+        
+        let articuloNombre = document.createElement('h3');
+        articuloNombre.classList.add('art-nombre');
+        articuloNombre.innerText = `${art.nombre} - ${art.marca}` ;
+        
+        let articuloDescription = document.createElement('p');
+        articuloDescription.classList.add('art-description');
+        articuloDescription.innerText = `${art.descripcion} ${art.detalle} ${art.modelo}`;
+        
+        let artPriceBtn = document.createElement('div');
+        artPriceBtn.classList.add('art-price-btn-container');
+        
+        let artPrice = document.createElement('h2');
+        artPrice.classList.add('art-price');
+        artPrice.innerText = `$ ${art.precio}` ;
+        
+        let artBtn = document.createElement('button');
+        artBtn.classList.add('art-btn-add');
+        artBtn.setAttribute('id',`${art.id}`);
+        artBtn.innerText = 'Agregar';
+    
+    
+        articuloImgContainer.appendChild(articuloImg);
+        
+        articuloCard.appendChild(articuloImgContainer);
+        articuloCard.appendChild(articuloNombre);
+        articuloCard.appendChild(articuloDescription);
+    
+        artPriceBtn.appendChild(artPrice);
+        artPriceBtn.appendChild(artBtn);
+    
+        articuloCard.appendChild(artPriceBtn);
+    
+        const contenedorArticulos = document.getElementById('art-container');
+    
+        contenedorArticulos.appendChild(articuloCard);
+    
+    
+}    
+};
+
+
+// funcion que despliega mas cards al presionar ver mas
+const cargarMasArticulos = () => {
+
+    for (let i=0; i < articulos.length ; i++){
+
+        art = articulos[i];
+
+            let articuloCard = document.createElement('div');
+            articuloCard.classList.add('art-card');
+            
+            let articuloImgContainer = document.createElement('div');
+            articuloImgContainer.classList.add('art-img-container');
+            
+            let articuloImg = document.createElement('img');
+            articuloImg.classList.add('art-img');
+            articuloImg.src = art.imagen;
+            articuloImg.alt = art.nombre;
+            
+            let articuloNombre = document.createElement('h3');
+            articuloNombre.classList.add('art-nombre');
+            articuloNombre.innerText = `${art.nombre} - ${art.marca}` ;
+            
+            let articuloDescription = document.createElement('p');
+            articuloDescription.classList.add('art-description');
+            articuloDescription.innerText = `${art.descripcion} ${art.detalle} ${art.modelo}`;
+            
+            let artPriceBtn = document.createElement('div');
+            artPriceBtn.classList.add('art-price-btn-container');
+            
+            let artPrice = document.createElement('h2');
+            artPrice.classList.add('art-price');
+            artPrice.innerText = `$ ${art.precio}` ;
+            
+            let artBtn = document.createElement('button');
+            artBtn.classList.add('art-btn-add');
+            artBtn.setAttribute('id',`${art.id}`);
+            artBtn.innerText = 'Agregar';
+        
+        
+            articuloImgContainer.appendChild(articuloImg);
+            
+            articuloCard.appendChild(articuloImgContainer);
+            articuloCard.appendChild(articuloNombre);
+            articuloCard.appendChild(articuloDescription);
+        
+            artPriceBtn.appendChild(artPrice);
+            artPriceBtn.appendChild(artBtn);
+        
+            articuloCard.appendChild(artPriceBtn);
+        
+            const contenedorArticulos = document.getElementById('art-container');
+            contenedorArticulos.appendChild(articuloCard);
+    }   
+    
+    // sombrearBotonVerMas();
+
+};
+
+
+// FUNCION INICIALIZADORA
+const init = () => {
+
+    // generadorArticulo();  USAR?? 
+
+    // rotarImagenesHero();  VER DESPUES DESPLAZAR IMAGENES EN HOME
+
+
+    articulosIniciales();
+
+
+    // escuchador boton  VER MAS  Articulos
+    verMasBtn.addEventListener('click',cargarMasArticulos);
+
+
+    rotadorImagenHome();
+
+
+    // Botones de Filtrados de Articulos
+    memorias.addEventListener('click',()=>{
+        limpiarArticulos();
+        const artCatFiltered = articulos.filter((articulo)=> articulo.categoria === memorias.id);
+        generarCards(artCatFiltered);
+    });
+    video.addEventListener('click',()=>{
+        limpiarArticulos();
+        const artCatFiltered = articulos.filter((articulo)=> articulo.categoria === video.id);
+        generarCards(artCatFiltered);
+    });
+    storage.addEventListener('click',()=>{
+        limpiarArticulos();
+        const artCatFiltered = articulos.filter((articulo)=> articulo.categoria === storage.id);
+        generarCards(artCatFiltered);
+    });
+    tools.addEventListener('click',()=>{
+        limpiarArticulos();
+        const artCatFiltered = articulos.filter((articulo)=> articulo.categoria === tools.id);
+        generarCards(artCatFiltered);
+    });
+    perifericos.addEventListener('click',()=>{
+        limpiarArticulos();
+        const artCatFiltered = articulos.filter((articulo)=> articulo.categoria === perifericos.id);
+        generarCards(artCatFiltered);
+    });
+    electronica.addEventListener('click',()=>{
+        limpiarArticulos();
+        const artCatFiltered = articulos.filter((articulo)=> articulo.categoria === electronica.id);
+        generarCards(artCatFiltered);
+    });
+    placas.addEventListener('click',()=>{
+        limpiarArticulos();
+        const artCatFiltered = articulos.filter((articulo)=> articulo.categoria === placas.id);
+        generarCards(artCatFiltered);
+    });
+    equipos.addEventListener('click',()=>{
+        limpiarArticulos();
+        const artCatFiltered = articulos.filter((articulo)=> articulo.categoria === equipos.id);
+        generarCards(artCatFiltered);
+    });
+
+};
+
+
+init();
