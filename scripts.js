@@ -331,6 +331,12 @@ menuToggleIcon.addEventListener('click',()=>{
     
 });
 
+// // Click menu hamburguesa --> cierra el menutoggle
+menuToggle.addEventListener('click',()=>{
+    menuToggle.style.display = 'none';
+        banderaToggle = false;
+});
+
 
 // // Click MENU CART --> abre y cierra el carrito
 menuCartIcon.addEventListener('click',()=>{
