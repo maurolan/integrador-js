@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&family=Texturina:wght@100;200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Link a Hojas de Estilo -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Link a MQueries -->
+    <link rel="stylesheet" href="mqueries.css">
+    <title>Venta de Garage</title>
+</head>
+
+<body>
+
+
+    <!-- MENU TOOGLE HAMBURGUESA -->
+    <ul class="menu-toggle" id="menu-toggle">
+        <li class="item"><a class="item-a" href="#home">Home</a></li>
+        <li class="item"><a class="item-a" href="#articulos">Artículos</a></li>
+        <li class="item"><a class="item-a" href="#tecnico">ServTecnico</a></li>
+        <li class="item"><a class="item-a" href="#acerca">Acerca</a></li>
+        <li class="item"><a class="item-a" href="#contacto">Contacto</a></li>
+    </ul>
+
+    <!-- MENU CARRITO -->
+    <div class="cart-container" id="cart-container">
+        <div class="cart-items-container" id="cart-items-container">
+            <!-- AGREGAR ITEMS POR JS -->
+            <!-- ITEM DE EJEMPLO --->
+
+            <!-- <div class="item-cart">
+                <img class="item-cart-img" src="./assets/img/articles/0009.png" alt="">
+                <div class="item-cart-info">
+                    <h3 class="item-cart-title">ITEM 1</h3>
+                    <p class="item-cart-price">$ 180000</p>
+                </div>
+                <div class="item-cart-toggle">
+                    <p class="item-cart-more-btn">+</p>
+                    <p class="item-cart-minus-btn">-</p>
+                    <p class="item-cart-del-btn">D</p>
+                </div>
+            </div> -->
+
+        </div>
+        <div class="cart-buy-container">
+            <div class="cart-buy-btn-container">
+                <button class="buy-cart-btn" id="buy-cart-btn">COMPRAR</button>
+                <button class="clear-cart-btn" id="clear-cart-btn">GGG</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ENCABEZADO y NAVbar -->
+    <header class="navbar" id="navbar">
+        <img class="logo" src="./assets/vglogo.png" alt="logo de Venta de Garage" />
+        <ul class="menu-container">
+            <li class="item"><a href="#home">Home</a></li>
+            <li class="item"><a href="#articulos">Artículos</a></li>
+            <li class="item"><a href="#tecnico">ServTecnico</a></li>
+            <li class="item"><a href="#acerca">Acerca</a></li>
+            <li class="item"><a href="#contacto">Contacto</a></li>
+        </ul>
+        <div class="cart-menu-container">
+            <i class="fa-solid fa-bars" id="menu-toggle-icon" style="color: #f1f4fa;"></i>
+            <i class="fa-solid fa-cart-shopping" id="menu-cart" style="color: #dfdfdf;"></i>
+        </div>
+    </header>
+
+    <!-- SECCION HERO -->
+    <section class="home" id="home">
+        <div class="hero-container">
+            <div class="hero-img-container"><img src="./assets/img/homeimg1.jpg" alt="" class="hero-img-portada"
+                    id="hero-img" />
+            </div>
+            <div class="hero-info-container">
+                <h1 class="hero-titulo">Venta de Garage</h1>
+                <h3 class="hero-subtitulo">Artículos Usados de Computación</h3>
+                <p class="hero-details">Precios accesibles... son cosas usadas!
+                    Cotiza la reparación de tu Compu. </p>
+                <a href="#acerca"><button class="hero-btn">Conoce Más</button></a>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- SECCCION ACERCA -->
+    <section class="acerca" id="acerca">
+
+        <div class="hero-info">
+            <h2 class="hero-info-title">Esto es lo que vendo y hago...</h2>
+            <p class="hero-info-detail">Todo aquello que tenga en un cajón o rincón, que sea informático y no
+                use...<span class="icon">💵💵</span></p>
+            <p class="hero-info-detail">Y como también me gusta reparar cosas... puedo arreglar tu Compu. <span
+                    class="icon">🖥💻</span>
+            </p>
+        </div>
+
+        <div class="hero-moreinfo">
+            <div class="hero-moreinfo-ticket"><i class="hero-moreinfo-ticket-img fa-solid fa-share-nodes"></i>
+                <h3 class="hero-moreinfo-ticket-title">Nos conectamos</h3>
+                <p class="hero-moreinfo-ticket-info">Contactame y contame que estas necesitando. Podes usar
+                    cualquier
+                    canal de comunicación de la sección <a class="hero-moreinfo-lnk" href="#contacto">Contacto</a>
+                </p>
+            </div>
+            <div class="hero-moreinfo-ticket"><i class="hero-moreinfo-ticket-img fa-solid fa-camera-retro"></i>
+                <h3 class="hero-moreinfo-ticket-title">Te fijas que te sirve</h3>
+                <p class="hero-moreinfo-ticket-info">En los artículos que tengo, y sino... dejame revolver que en
+                    alguna
+                    caja siempre encuentro algo...</p>
+            </div>
+            <div class="hero-moreinfo-ticket"><i class="hero-moreinfo-ticket-img fa-regular fa-thumbs-up"></i>
+                <h3 class="hero-moreinfo-ticket-title">Acordamos Venta/Servicio</h3>
+                <p class="hero-moreinfo-ticket-info">Si necesitas arreglar la compu, te puedo ayudar... la traes o
+                    voy a
+                    domicilio.
+                </p>
+            </div>
+        </div>
+
+
+        <div class="hero-info-container-final">
+            <p class="hero-info-final">"Buscar en una caja aplaca la ansiedad... satisfactorio es encontrar lo
+                que no
+                usas y que le
+                sirva a alguien más... <span class="icon">🛒</span> " Anónimo
+            </p>
+        </div>
+
+
+    </section>
+
+
+    <!-- SECCION ARTICULOS -->
+    <section class="articulos" id="articulos">
+        <h1 class="art-titulo">Artículos</h1>
+        <div class="articulos-categories">
+            <div id="memorias" class="art-cat-btn"><i class="fa-solid fa-memory"></i>Memorias</div>
+            <div id="video" class="art-cat-btn"><i class="fa-solid fa-video"></i> Video</div>
+            <div id="storage" class="art-cat-btn"><i class="fa-solid fa-hard-drive"></i> Storage</div>
+            <div id="tools" class="art-cat-btn"><i class="fa-solid fa-wrench"></i> Tools</div>
+            <div id="perifericos" class="art-cat-btn"><i class="fa-solid fa-keyboard"></i> Perifericos</div>
+            <div id="electronica" class="art-cat-btn"><i class="fa-solid fa-microchip"></i> Electronica</div>
+            <div id="placas" class="art-cat-btn"><i class="fa-solid fa-computer"></i> Placas</div>
+            <div id="equipos" class="art-cat-btn"><i class="fa-solid fa-laptop"></i> Equipos</div>
+        </div>
+        <div class="art-container" id="art-container">
+
+            <!-- CARD de ejemplo 
+                <div class="art-card">
+                    <div class="art-img-container"><img class="art-img" src="./assets/img/articles/0002.jpg" alt="memoria ddr3"></div>
+                    <h3 class="art-nombre">Memoria DDR 3</h3>
+                    <p class="art-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                        <div class="art-price-btn-container">
+                            <h2 class="art-price">$150</h2>
+                            <button class="art-btn-add">Agregar</button>
+                        </div>
+                </div>
+            -->
+
+            <!-- cargo el contenido por el boton ver mas o por categoria por java script -->
+        </div>
+        <a href="#articulos"><button class="art-more-btn" id="btn-ver-more">Ver más</button></a>
+    </section>
+
+
+    <!-- SECCION SERVICIO TECNICO -->
+    <section class="tecnico" id="tecnico">
+
+        <div class="tecnico-head-container">
+
+            <div class="tecnico-head-info-container">
+                <h2 class="tecnico-title">Servicio Técnico</h2>
+                <img src="./assets/img/tecnico/mother.jpg" alt="" class="tecnico-head-img">
+                <p class="tecnico-head-descrip">
+                    <span class="text-general">Necesitas reparar tu Laptop ? </span>
+                    <span class="text-general">Instalar Windows en la Computadora ? </span>
+                    <span class="text-general">El monitor tiene la imagen oscura ? 📺 </span>
+                    <span class="text-general">Windows va demasiado lento o se tilda ? 🐌 </span>
+                    <span class="text-general">Cambiar algun componente del equipo ? </span>
+                    <span class="text-general">Instalar un aire acondicionado ? 🤨</span>
+                    <span class="text-general-final">Excepto lo del aire, las otras son
+                        preguntas que puedo resolver. 😁</span>
+                </p>
+                <a href="#contacto" class="tecnico-head-lnk"><button class="tecnico-head-btn">Contrata un
+                        Servicio</button></a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SECCION CONTACTO -->
+    <section class="contacto" id="contacto">
+
+        <div class="contacto-container">
+            <form class="contacto-form" action="">
+                <h3 class="contacto-form-title">Contacto</h3>
+                <input class="contacto-form-input" type="text" id="nombre" placeholder="Nombre...">
+                <input class="contacto-form-input" type="text" id="apellido" placeholder="Apellido...">
+                <input class="contacto-form-input" type="text" id="email" placeholder="Correo...">
+                <input class="contacto-form-input" type="text" id="telefono" placeholder="Teléfono...">
+
+                <button class="contacto-btn" id="contacto-btn">Enviar</button>
+            </form>
+
+            <div class="footer-icon-container">
+                <li><i class="fa-brands fa-youtube"></i></li>
+                <li><i class="fa-brands fa-facebook"></i></li>
+                <li><i class="fa-brands fa-instagram"></i></li>
+                <li><i class="fa-brands fa-discord"></i></li>
+                <li><i class="fa-brands fa-whatsapp"></i></li>
+            </div>
+            <iframe class="google-map"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d798.2378387468107!2d-58.57461707831931!3d-34.54059452459458!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2sar!4v1692621468678!5m2!1ses!2sar"
+                width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+    </section>
+
+
+
+    <!-- pie de pagina -->
+    <footer>
+
+
+        <ul id="copyright">
+            <li>&copy; No hay Derechos ni Izquierdos reservados @ Venta de Garage</li>
+            <li>Diseño: - Mauro Lanzillotta <a href="https://www.nucba.com.ar/">| Integrador JS Nucba </a></li>
+        </ul>
+
+    </footer>
+
+
+
+    <!-- JAVASCRIPT -->
+    <!-- Link a codigo JS -->
+    <script src="scripts.js"></script>
+    <!-- Links a archivo de datos -->
+    <script src="jsdata.js"></script>
+    <!-- Fontawesome script -->
+    <script src="https://kit.fontawesome.com/4e948b8293.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
+
+
+<!-- 
+Deberán utilizar buenas prácticas a la hora de estructurar y organizar el código (buena organización del código en general, por ejemplo, buenos nombres de variables, funciones y parámetros).
+-Una sección de productos o noticias en la cual se deberá poder filtrar por categorías dichas noticias o productos.
+
+
+
+
+
+-Una sección de contacto.
+-Un footer.
+-Un carrito (para los ecommerce) o un apartado de noticias favoritas (para una landing de noticias).
+
+👉 Deberá tener al menos una funcionalidad en la que capture datos de una parte de la página y cree un componente HTML en base a eso (Por ejemplo, agregar un producto al carrito o guardar una noticia en favoritos).
+
+👉 Deberá utilizar localStorage, para persistir datos en el sitio (productos o noticias guardadas).
+
+
+
+👉 La sección de productos o noticias deberá renderizarse desde JS. No podrán codear cada producto/noticia en el archivo HTML.
+
+
+
+
+👉 La sección de contacto deberá tener un formulario con validación incluida, mostrando tanto los errores como un mensaje de éxito si pasa las validaciones.
+
+
+
+👉 El sitio debe ser responsivo y tener menú hamburguesa (funcional, realizado con js) en las resoluciones (mobile, tablet, etc.) que corresponda.
+
+
+
+
+👉 OPCIONAL: Si conocen alguna API de Productos/Noticias que quieran utilizar en lugar de traer los datos  desde un archivo de JS, pueden hacerlo.
+
+ -->
