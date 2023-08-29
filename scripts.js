@@ -303,6 +303,10 @@ const heroImagen = document.getElementById('hero-img');
 
 const verMasBtn = document.getElementById('btn-ver-more');
 
+
+// captura items carrito
+const cartItemsContainer = document.getElementById('cart-items-container');
+
 // categorias buttons
 const memorias = document.getElementById('memorias');
 const video = document.getElementById('video');
@@ -360,7 +364,76 @@ menuCartIcon.addEventListener('click',()=>{
 // HATA ACA NO REPETIR CODIGO!!
 
 
+// Funcion que detecta el articulo que se quiere agregar al carrito
+const addArtCart = document.addEventListener('click',(e)=>{
+    let id = Number(e.target.id);
+    generarCardCart(id);
+});
 
+
+//Funcion para Generar card de carrito
+const generarCardCart = (id) => {
+
+//buscar el articulos a partir del id
+const art = articulos.find((articulo)=>{
+    return articulo.id === id; 
+});
+
+// console.log(art);
+
+// generar html
+
+let itemCart = document.createElement('div');
+itemCart.classList.add('item-cart');
+
+let itemCartImg = document.createElement('img');
+itemCartImg.classList.add('item-cart-img');
+itemCartImg.src = art.imagen; 
+itemCartImg.alt = art.nombre; 
+
+let itemCartInfo = document.createElement('div');
+itemCartInfo.classList.add('item-cart-info'); // a esta clase le appendeo itemCartTitle y itemCartPrice
+
+
+let itemCartTitle = document.createElement('h3');
+itemCartTitle.classList.add('item-cart-title');
+itemCartTitle.innerText = art.nombre; 
+
+
+let itemCartPrice = document.createElement('p');
+itemCartPrice.classList.add('item-cart-price');
+itemCartTitle.innerText = art.precio; 
+
+let itemCartToggle = document.createElement('div');
+itemCartToggle.classList.add('item-cart-toggle'); // a esta clase le appendeo los 3 'p'
+
+let itemCartMoreBtn = document.createElement('p');
+itemCartMoreBtn.classList.add('item-cart-more-btn');
+itemCartMoreBtn.innerText = '+';
+
+let itemCartMinusBtn = document.createElement('p');
+itemCartMinusBtn.classList.add('item-cart-minus-btn');
+itemCartMinusBtn.innerText = '-';
+
+let itemCartDelBtn = document.createElement('p');
+itemCartDelBtn.classList.add('item-cart-del-btn');
+itemCartDelBtn.innerText = 'D';
+
+itemCartToggle.appendChild(itemCartMoreBtn);
+itemCartToggle.appendChild(itemCartMinusBtn);
+itemCartToggle.appendChild(itemCartDelBtn);
+
+itemCartInfo.appendChild(itemCartTitle);
+itemCartInfo.appendChild(itemCartPrice);
+
+itemCart.appendChild(itemCartImg);
+itemCart.appendChild(itemCartInfo);
+itemCart.appendChild(itemCartToggle);
+
+cartItemsContainer.appendChild(itemCart);
+
+
+};
 
 
 // Funcion que genera las cards a partir del filtro aplicado
@@ -436,13 +509,6 @@ let imagen = 1;
     }, 20000);
 
 }; 
-
-
-
-// FUNCION QUE AGREGA ARTICULO AL CARRITO
-const agregarArticuloCarrito = (idArticulo) => {
-    console.log('funcion en desarrollo agregarArticuloCarrito()');
-};
 
 
 // FUNCION QUE BORRAR LAS CARDS CARGADAS
