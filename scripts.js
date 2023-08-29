@@ -405,7 +405,7 @@ itemCartPrice.classList.add('item-cart-price');
 itemCartTitle.innerText = art.precio; 
 
 let itemCartToggle = document.createElement('div');
-itemCartToggle.classList.add('item-cart-toggle'); // a esta clase le appendeo los 3 'p'
+itemCartToggle.classList.add('item-cart-toggle'); // a esta clase le appendeo los 3 'parrafos'
 
 let itemCartMoreBtn = document.createElement('p');
 itemCartMoreBtn.classList.add('item-cart-more-btn');
@@ -431,7 +431,6 @@ itemCart.appendChild(itemCartInfo);
 itemCart.appendChild(itemCartToggle);
 
 cartItemsContainer.appendChild(itemCart);
-
 
 };
 
