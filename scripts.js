@@ -290,6 +290,7 @@ const articulos = [
 
 // VARIABLES AUXILIARES
 let banderaCart = false;
+let banderaToggle = false;
 
 // CAPTURA DE ELEMENTOS
 const menuToggleIcon = document.getElementById('menu-toggle-icon');
@@ -315,12 +316,19 @@ const equipos = document.getElementById('equipos');
 
 // // Click menu hamburguesa --> abre el menutoggle
 menuToggleIcon.addEventListener('click',()=>{
-    menuToggle.style.display = 'flex';
-});
 
-// // Click menu hamburguesa --> cierra el menutoggle
-menuToggle.addEventListener('click',()=>{
-menuToggle.style.display = 'none';
+    if(!banderaToggle){
+        menuToggle.style.display = 'flex';
+        banderaToggle = true;
+
+        CartContainer.style.visibility = 'hidden';
+        CartContainer.style.transform = 'translate(150%)';
+        banderaCart = false;
+    }else{
+        menuToggle.style.display = 'none';
+        banderaToggle = false;
+    }
+    
 });
 
 
@@ -330,6 +338,9 @@ menuCartIcon.addEventListener('click',()=>{
         CartContainer.style.visibility = 'visible';
         CartContainer.style.transform = 'translate(0%)';
         banderaCart = true;
+
+        menuToggle.style.display = 'none';
+        banderaToggle = false;
     }else{
         CartContainer.style.visibility = 'hidden';
         CartContainer.style.transform = 'translate(150%)';
