@@ -314,7 +314,10 @@ const placas = document.getElementById('placas');
 const equipos = document.getElementById('equipos');
 
 
-// // Click menu hamburguesa --> abre el menutoggle
+
+
+
+// // Click menu hamburguesa --> abre el menutoggle  ver tema de no repetir!!!!!
 menuToggleIcon.addEventListener('click',()=>{
 
     if(!banderaToggle){
@@ -354,6 +357,11 @@ menuCartIcon.addEventListener('click',()=>{
     }
 });
 
+// HATA ACA NO REPETIR CODIGO!!
+
+
+
+
 
 // Funcion que genera las cards a partir del filtro aplicado
 const generarCards = (artCatFiltered) => {
@@ -388,6 +396,7 @@ const generarCards = (artCatFiltered) => {
     
     let artBtn = document.createElement('button');
     artBtn.classList.add('art-btn-add');
+    artBtn.setAttribute('id',`${art.id}`);
     artBtn.innerText = 'Agregar';
 
 
@@ -519,6 +528,7 @@ for (let i=0; i<3 ; i++){
         
         let artBtn = document.createElement('button');
         artBtn.classList.add('art-btn-add');
+        artBtn.setAttribute('id',`${art.id}`);
         artBtn.innerText = 'Agregar';
     
     
@@ -577,6 +587,7 @@ const cargarMasArticulos = () => {
             
             let artBtn = document.createElement('button');
             artBtn.classList.add('art-btn-add');
+            artBtn.setAttribute('id',`${art.id}`);
             artBtn.innerText = 'Agregar';
         
         
