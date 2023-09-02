@@ -143,7 +143,7 @@
     <!-- SECCION ARTICULOS -->
     <section class="articulos" id="articulos">
         <h1 class="art-titulo">Artículos</h1>
-        <div class="articulos-categories">
+        <div class="articulos-categories" id="articulos-categories">
             <div id="memorias" class="art-cat-btn"><i class="fa-solid fa-memory"></i>Memorias</div>
             <div id="video" class="art-cat-btn"><i class="fa-solid fa-video"></i> Video</div>
             <div id="storage" class="art-cat-btn"><i class="fa-solid fa-hard-drive"></i> Storage</div>
@@ -155,21 +155,12 @@
         </div>
         <div class="art-container" id="art-container">
 
-            <!-- CARD de ejemplo 
-                <div class="art-card">
-                    <div class="art-img-container"><img class="art-img" src="./assets/img/articles/0002.jpg" alt="memoria ddr3"></div>
-                    <h3 class="art-nombre">Memoria DDR 3</h3>
-                    <p class="art-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        <div class="art-price-btn-container">
-                            <h2 class="art-price">$150</h2>
-                            <button class="art-btn-add">Agregar</button>
-                        </div>
-                </div>
-            -->
-
             <!-- cargo el contenido por el boton ver mas o por categoria por java script -->
+
         </div>
-        <a href="#articulos"><button class="art-more-btn" id="btn-ver-more">Ver más</button></a>
+        <button class="art-more-btn" id="btn-ver-more">Ver más</button>
+        <button class="art-more-btn" id="btn-ver-all">Ver todos</button>
+
     </section>
 
 
@@ -245,10 +236,12 @@
 
 
     <!-- JAVASCRIPT -->
+
+    <!-- Link a archivo de datos -->
+    <script src="jsdata.js"></script>
+
     <!-- Link a codigo JS -->
     <script src="scripts.js"></script>
-    <!-- Links a archivo de datos -->
-    <script src="jsdata.js"></script>
     <!-- Fontawesome script -->
     <script src="https://kit.fontawesome.com/4e948b8293.js" crossorigin="anonymous"></script>
 </body>
