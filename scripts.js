@@ -2,6 +2,7 @@
 let banderaCart = false;
 let banderaToggle = false;
 let banderaMostrados = 0;
+let totalCart = 0;
 
 // FUNCIONES AUXILIARES
 const generarIndicesAleatorios = () => {
@@ -46,8 +47,14 @@ const contenedorCards = document.getElementById('art-container')
 
 const verTodosBtn = document.getElementById('btn-ver-all');
 
+const borrarCartBtn = document.getElementById('clear-cart-btn');
+
 // captura items carrito
 const cartItemsContainer = document.getElementById('cart-items-container');
+
+const cartCounter = document.getElementById('cart-counter');
+
+
 
 // categorias buttons
 const btnCategoria = document.getElementById('articulos-categories');
@@ -92,38 +99,106 @@ menuCartIcon.addEventListener('click',()=>{
 });
 
 
-// //buscar el articulos a partir del id
-function agregarArticulo(id){
-    let encontrado = articulos.find(articulo => id === articulo.id);
+// funciona que carga el carrito al inicio
+const articulosInicio = () => {
 
-   const templateCartCard =  generarCardCart(encontrado);
-
-    renderizarCart(templateCartCard);
+let carrito = JSON.parse(localStorage.getItem("articulos")) || [];
+if (!carrito.length) {
+    cartItemsContainer.innerHTML = '<h3 class="no-items"> No hay items seleccionados</h3>';
+        return;
+    } 
+    renderizarCart(carrito);
+    return;
 } 
 
-//Funcion para Generar card de carrito
-const generarCardCart = (encontrado) => {
-const {nombre, precio, imagen} = encontrado; 
-return `
-<div class="item-cart">
-    <img class="item-cart-img" src="${imagen}" alt="${nombre}" />
-    <div class="item-cart-info">
-        <h3 class="item-cart-title">${nombre}</h3>
-        <p class="item-cart-price">$ ${precio}</p>
-    </div>
-    <div class="item-cart-toggle">
-        <p class="item-cart-more-btn">+</p>
-        <p class="item-cart-minus-btn">-</p>
-        <p class="item-cart-del-btn">D</p>
-    </div>
-</div>
-`; 
+
+// Guardar en LS
+const guardarEnLS = (encontrado) => {
+   
+    //cargo el LS antes de guardarlo
+    const articulos = obtenerDeLS() || [];
+    
+    // y pusheo el nuevo item agregado
+    articulos.push(encontrado);
+
+    // vuelvo a guardar en LS todo
+    localStorage.setItem('articulos',JSON.stringify(articulos));
+
+    return;
+}
+
+
+
+// Obtener de LS
+const obtenerDeLS = () => {
+    let articulosAComprar = JSON.parse(localStorage.getItem('articulos' || []) );
+    return articulosAComprar;
 };
 
-const renderizarCart = (art) => {
-    cartItemsContainer.innerHTML += art;
+
+//Borrar LS
+const borrarLS = () => {
+    localStorage.clear();
+    totalCart = 0;
+    cartCounter.innerText = totalCart;
+    cartItemsContainer.innerHTML = '<h3 class="no-items"> No hay items seleccionados</h3>';
+};
+
+// Agregar articulos a Carrito desde BOTON AGREGAR
+function agregarArticulo(id){
+    let encontrado = articulos.find(articulo => id === articulo.id);
+    if (encontrado == undefined) {
+        return;
+    }
+
+    // Guardo en LS
+    guardarEnLS(encontrado);
+
+   // Renderizo desde LS 
+    let items = obtenerDeLS();
+    
+    renderizarCart(items); 
+
+    totalCart++;
+    
+    cartCounter.innerText = totalCart;
+
+
+    return;
+    
+} 
+
+
+// Modificar Cantidad
+const sumarItem = (e) => {
+    console.log(e.target());
+
+};
+
+
+//Funcion para Generar card de carrito
+const generarCardCarrito = (item) => {
+        const {nombre, precio, imagen, cantidad} = item; 
+        
+        return `    <div class="item-cart">
+                        <img class="item-cart-img" src="${imagen}" alt="${nombre}" />
+                        <div class="item-cart-info">
+                            <h3 class="item-cart-title">${nombre}</h3>
+                            <p class="item-cart-price">$ ${precio}</p>
+                        </div>
+                        <div class="item-cart-toggle">
+                            <p class="item-cart-more-btn">+</p>
+                            <p class="item-cart-minus-btn">-</p>
+                            <p class="item-cart-del-btn">${cantidad}</p>
+                        </div>
+                    </div>`; 
+};
+
+const renderizarCart = (items) => {
+    cartItemsContainer.innerHTML = items.map(generarCardCarrito).join('');
     // FALTA EL AVISO  que se agregó un item !!!!!!!!!!!!!!!!!!
 };
+
 
 // FUNCION QUE ROTAS LAS IMAGENES CADA CIERTO TIEMPO EN HOME
 const rotadorImagenHome = () => {
@@ -156,60 +231,11 @@ const mostrarCardsFiltradas = (categoria) => {
 // Funcion que genera 3 cards al azar iniciales
 const articulosIniciales = () => {
     let indices = generarIndicesAleatorios();
-for (let i=0; i<3 ; i++){
-
-    
-    art = articulos[indices[i]];
-
-        let articuloCard = document.createElement('div');
-        articuloCard.classList.add('art-card');
-        
-        let articuloImgContainer = document.createElement('div');
-        articuloImgContainer.classList.add('art-img-container');
-        
-        let articuloImg = document.createElement('img');
-        articuloImg.classList.add('art-img');
-        articuloImg.src = art.imagen;
-        articuloImg.alt = art.nombre;
-        
-        let articuloNombre = document.createElement('h3');
-        articuloNombre.classList.add('art-nombre');
-        articuloNombre.innerText = `${art.nombre} - ${art.marca}` ;
-        
-        let articuloDescription = document.createElement('p');
-        articuloDescription.classList.add('art-description');
-        articuloDescription.innerText = `${art.descripcion} ${art.detalle} ${art.modelo}`;
-        
-        let artPriceBtn = document.createElement('div');
-        artPriceBtn.classList.add('art-price-btn-container');
-        
-        let artPrice = document.createElement('h2');
-        artPrice.classList.add('art-price');
-        artPrice.innerText = `$ ${art.precio}` ;
-        
-        let artBtn = document.createElement('button');
-        artBtn.classList.add('art-btn-add');
-        artBtn.setAttribute('id',`${art.id}`);
-        artBtn.innerText = 'Agregar';
-    
-    
-        articuloImgContainer.appendChild(articuloImg);
-        
-        articuloCard.appendChild(articuloImgContainer);
-        articuloCard.appendChild(articuloNombre);
-        articuloCard.appendChild(articuloDescription);
-    
-        artPriceBtn.appendChild(artPrice);
-        artPriceBtn.appendChild(artBtn);
-    
-        articuloCard.appendChild(artPriceBtn);
-    
-        const contenedorArticulos = document.getElementById('art-container');
-    
-        contenedorArticulos.appendChild(articuloCard);
-    
-    
-}    
+    art = [];
+    for (let i=0; i<3 ; i++){
+        art.push(articulos[indices[i]]);        
+    }    
+    renderizarArticulos(art);
 };
 
 // Funcion Generadora de 1 sola card
@@ -231,7 +257,7 @@ const generarCardTemplate = articulo => {
     `;
 };
 
-//FUNCION QUE RENDERIZA ARTICULOS del arreglo pasado como argumentos
+//FUNCION QUE RENDERIZA ARTICULOS de un arreglo pasado como argumentos
 const renderizarArticulos = (arts) => {
     limpiarArticulos();
 let articulosGenerados = arts.map(generarCardTemplate).join('');
@@ -261,15 +287,19 @@ const agruparArticulos = () => {
 // FUNCION INICIALIZADORA
 const init = () => {
 
+    // Me traigo items del carrito si tiene
+    document.addEventListener('DOMContentLoaded', articulosInicio);
+
+    // Rotas imagenes en Home
     rotadorImagenHome();
 
     // muestro 3 articulos iniciales al azar
     articulosIniciales();
 
-         // escuchador boton  VER MAS  Articulos
+    // escuchador boton  VER MAS  Articulos
     verMasBtn.addEventListener('click',agruparArticulos);
 
-    // escuchador botn VER Todo articulos
+    // escuchador botn VER Todos articulos
     verTodosBtn.addEventListener('click',()=>{
         renderizarArticulos(articulos);
         verMasBtn.classList.add('ocultar');
@@ -279,12 +309,17 @@ const init = () => {
       // Escuchar Botones de Filtrados de Articulos
     btnCategoria.addEventListener('click',(e) => mostrarCardsFiltradas(e.target.id));
 
-
     // Escuchar Botones de Artículos
     contenedorCards.addEventListener('click',(e) => {
-       let resul = agregarArticulo(Number(e.target.id));
+        let resul = agregarArticulo(Number(e.target.id));
     });
 
+    //escuchar boton vaciar carrito
+    borrarCartBtn.addEventListener('click',borrarLS);
+
+    //escuchar botones de sumar o restar item del carrito
+    // itemCartMoreBtn.addEventListener('click',sumarItem);
+    // itemCartMinusBtn.addEventListener('click',restarItem);
 };
 
 

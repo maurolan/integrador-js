@@ -11,6 +11,7 @@ const articulos = [
         categoria: "storage",
         stock: 2,
         imagen: "./assets/img/articles/0001.png", 
+        cantidad: 0
     },
     {
         id: 2,
@@ -24,6 +25,7 @@ const articulos = [
         categoria: "storage",
         stock: 3,
         imagen: "./assets/img/articles/0016.png", 
+        cantidad: 0
     },
     { 
         id: 3,
@@ -37,6 +39,7 @@ const articulos = [
         categoria: "memorias",
         stock: 4,
         imagen: "./assets/img/articles/0002.png", 
+        cantidad: 0
     },
     { 
         id: 4,
@@ -50,6 +53,7 @@ const articulos = [
         categoria: "placas",
         stock: 1,
         imagen: "./assets/img/articles/0003.png", 
+        cantidad: 0
     },
     { 
         id: 5,
@@ -63,6 +67,7 @@ const articulos = [
         categoria: "placas",
         stock: 1,
         imagen: "./assets/img/articles/0017.png", 
+        cantidad: 0
     },
     { 
         id: 6,
@@ -76,6 +81,7 @@ const articulos = [
         categoria: "video",
         stock: 1,
         imagen: "./assets/img/articles/0004.png", 
+        cantidad: 0
     },
     { 
         id: 7,
@@ -89,6 +95,7 @@ const articulos = [
         categoria: "video",
         stock: 1,
         imagen: "./assets/img/articles/0007.png", 
+        cantidad: 0
     },
     { 
         id: 8,
@@ -102,6 +109,7 @@ const articulos = [
         categoria: "equipos",
         stock: 1,
         imagen: "./assets/img/articles/0008.png", 
+        cantidad: 0
     },
     { 
         id: 9,
@@ -115,6 +123,7 @@ const articulos = [
         categoria: "equipos",
         stock: 1,
         imagen: "./assets/img/articles/0009.png", 
+        cantidad: 0
     },
     { 
         id: 10,
@@ -128,6 +137,7 @@ const articulos = [
         categoria: "equipos",
         stock: 1,
         imagen: "./assets/img/articles/0010.png", 
+        cantidad: 0
     },
     { 
         id: 11,
@@ -141,6 +151,7 @@ const articulos = [
         categoria: "equipos",
         stock: 1,
         imagen: "./assets/img/articles/0011.png", 
+        cantidad: 0
     },
     { 
         id: 12,
@@ -154,6 +165,7 @@ const articulos = [
         categoria: "electronica",
         stock: 2,
         imagen: "./assets/img/articles/0012.png", 
+        cantidad: 0
     },
     { 
         id: 13,
@@ -167,6 +179,7 @@ const articulos = [
         categoria: "tools",
         stock: 3,
         imagen: "./assets/img/articles/0013.png", 
+        cantidad: 0
     },
     { 
         id: 14,
@@ -180,6 +193,7 @@ const articulos = [
         categoria: "perifericos",
         stock: 2,
         imagen: "./assets/img/articles/0014.png", 
+        cantidad: 0
     },
     { 
         id: 15,
@@ -193,6 +207,7 @@ const articulos = [
         categoria: "perifericos",
         stock: 2,
         imagen: "./assets/img/articles/0015.png", 
+        cantidad: 0
     },
     { 
         id: 16,
@@ -206,6 +221,7 @@ const articulos = [
         categoria: "memorias",
         stock: 2,
         imagen: "./assets/img/articles/0018.png", 
+        cantidad: 0
     },
     { 
         id: 17,
@@ -219,6 +235,7 @@ const articulos = [
         categoria: "memorias",
         stock: 2,
         imagen: "./assets/img/articles/0019.png", 
+        cantidad: 0
     },
     { 
         id: 18,
@@ -232,6 +249,7 @@ const articulos = [
         categoria: "video",
         stock: 1,
         imagen: "./assets/img/articles/0020.png", 
+        cantidad: 0
     },
     { 
         id: 19,
@@ -245,6 +263,7 @@ const articulos = [
         categoria: "storage",
         stock: 2,
         imagen: "./assets/img/articles/0021.png", 
+        cantidad: 0
     },
     { 
         id: 20,
@@ -258,6 +277,7 @@ const articulos = [
         categoria: "storage",
         stock: 2,
         imagen: "./assets/img/articles/0022.png", 
+        cantidad: 0
     },
     { 
         id: 21,
@@ -271,6 +291,7 @@ const articulos = [
         categoria: "equipos",
         stock: 2,
         imagen: "./assets/img/articles/0023.png", 
+        cantidad: 0
     },
     { 
         id: 22,
@@ -284,5 +305,6 @@ const articulos = [
         categoria: "electronica",
         stock: 2,
         imagen: "./assets/img/articles/0027.png", 
+        cantidad: 0
     }
 ];
