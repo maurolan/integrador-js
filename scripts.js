@@ -1,10 +1,7 @@
-
-
 // VARIABLES AUXILIARES
 let banderaCart = false;
 let banderaToggle = false;
 let banderaMostrados = 0;
-
 
 // FUNCIONES AUXILIARES
 const generarIndicesAleatorios = () => {
@@ -33,8 +30,6 @@ return indicesGenerados;
 
 };
 
-
-
 // CAPTURA DE ELEMENTOS
 const menuToggleIcon = document.getElementById('menu-toggle-icon');
 const menuToggle = document.getElementById('menu-toggle');
@@ -56,9 +51,6 @@ const cartItemsContainer = document.getElementById('cart-items-container');
 
 // categorias buttons
 const btnCategoria = document.getElementById('articulos-categories');
-
-
-
 
 // // Click menu hamburguesa --> abre el menutoggle  ver tema de no repetir!!!!!
 menuToggleIcon.addEventListener('click',()=>{
@@ -83,7 +75,6 @@ menuToggle.addEventListener('click',()=>{
         banderaToggle = false;
 });
 
-
 // // Click MENU CART --> abre y cierra el carrito
 menuCartIcon.addEventListener('click',()=>{
     if (!banderaCart){
@@ -100,11 +91,8 @@ menuCartIcon.addEventListener('click',()=>{
     }
 });
 
-// HATA ACA NO REPETIR CODIGO!!
-
 
 // //buscar el articulos a partir del id
-
 function agregarArticulo(id){
     let encontrado = articulos.find(articulo => id === articulo.id);
 
@@ -115,10 +103,7 @@ function agregarArticulo(id){
 
 //Funcion para Generar card de carrito
 const generarCardCart = (encontrado) => {
-
-const {nombre, precio, imagen} = encontrado;
-   
-// generar html
+const {nombre, precio, imagen} = encontrado; 
 return `
 <div class="item-cart">
     <img class="item-cart-img" src="${imagen}" alt="${nombre}" />
@@ -132,18 +117,13 @@ return `
         <p class="item-cart-del-btn">D</p>
     </div>
 </div>
-`;
-    
+`; 
 };
 
 const renderizarCart = (art) => {
-    
     cartItemsContainer.innerHTML += art;
-    
     // FALTA EL AVISO  que se agregó un item !!!!!!!!!!!!!!!!!!
-
 };
-
 
 // FUNCION QUE ROTAS LAS IMAGENES CADA CIERTO TIEMPO EN HOME
 const rotadorImagenHome = () => {
@@ -158,12 +138,10 @@ let imagen = 1;
 
 }; 
 
-
 // FUNCION QUE BORRAR LAS CARDS CARGADAS
 const limpiarArticulos = () => {
     contenedorCards.innerHTML = '';
 };
-
 
 // Funcion que genera las cards a partir del filtro aplicado
 const mostrarCardsFiltradas = (categoria) => {
@@ -175,12 +153,9 @@ const mostrarCardsFiltradas = (categoria) => {
     verTodosBtn.classList.remove('ocultar');
 };
 
-
 // Funcion que genera 3 cards al azar iniciales
 const articulosIniciales = () => {
-
     let indices = generarIndicesAleatorios();
-
 for (let i=0; i<3 ; i++){
 
     
@@ -237,7 +212,6 @@ for (let i=0; i<3 ; i++){
 }    
 };
 
-
 // Funcion Generadora de 1 sola card
 const generarCardTemplate = articulo => {
     const {nombre, marca, imagen, precio, id, modelo, detalle, descripcion} = articulo;
@@ -264,7 +238,6 @@ let articulosGenerados = arts.map(generarCardTemplate).join('');
 contenedorCards.innerHTML = articulosGenerados;
 };
 
-
 // Mostrar en grupos de articulos de 3 uso una variable auxiliar para saber en que posicion estoy.
 const agruparArticulos = () => {
    let total = articulos.length
@@ -285,7 +258,6 @@ const agruparArticulos = () => {
 };
 
 
-
 // FUNCION INICIALIZADORA
 const init = () => {
 
@@ -294,8 +266,7 @@ const init = () => {
     // muestro 3 articulos iniciales al azar
     articulosIniciales();
 
-    
-     // escuchador boton  VER MAS  Articulos
+         // escuchador boton  VER MAS  Articulos
     verMasBtn.addEventListener('click',agruparArticulos);
 
     // escuchador botn VER Todo articulos
