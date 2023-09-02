@@ -102,47 +102,49 @@ menuCartIcon.addEventListener('click',()=>{
 // HATA ACA NO REPETIR CODIGO!!
 
 
-
-// Funcion que detecta el articulo que se quiere agregar al carrito
-const addArtCart = document.addEventListener('click',(e)=>{
-    let id = Number(e.target.id);
-    generarCardCart(id);
-});
-
+// //buscar el articulos a partir del id
+// const art = articulos.find((articulo)=>{
+//     return articulo.id === id; 
+// });
 
 //Funcion para Generar card de carrito
-const generarCardCart = (id) => {
+// const generarCardCart = (id) => {
 
-//buscar el articulos a partir del id
-const art = articulos.find((articulo)=>{
-    return articulo.id === id; 
-});
 
-// generar html
-const cartCardTemplate = articuloID => {
-/* CADENA PARA HTML 
+//     // generar html
+//     const cartCardTemplate = articuloID => {
+//             /* CADENA PARA HTML 
+    
+//             <div class="item-cart">
+//                             <img class="item-cart-img" src="${image}" alt="${nombre}">
+//                             <div class="item-cart-info">
+//                                 <h3 class="item-cart-title">${nombre}</h3>
+//                                 <p class="item-cart-price">$ ${precio}</p>
+//                             </div>
+//                             <div class="item-cart-toggle">
+//                                 <p class="item-cart-more-btn">+</p>
+//                                 <p class="item-cart-minus-btn">-</p>
+//                                 <p class="item-cart-del-btn">D</p>
+//                             </div>
+    
+//             */
+    
+//             // cartItemsContainer.innerHTML += algoo;
+    
+//             // avisar que se agregó un item !!!!!!!!!!!!!!!!!!
+//     };
+    
+//     };
 
-<div class="item-cart">
-                <img class="item-cart-img" src="${image}" alt="${nombre}">
-                <div class="item-cart-info">
-                    <h3 class="item-cart-title">${nombre}</h3>
-                    <p class="item-cart-price">$ ${precio}</p>
-                </div>
-                <div class="item-cart-toggle">
-                    <p class="item-cart-more-btn">+</p>
-                    <p class="item-cart-minus-btn">-</p>
-                    <p class="item-cart-del-btn">D</p>
-                </div>
 
-*/
+// Funcion que detecta el articulo que se quiere agregar al carrito
+// const addArtCart = document.addEventListener('click',(e)=>{
+//     let id = Number(e.target.id);
+//     generarCardCart(id);
+// });
 
-};
 
-// cartItemsContainer.innerHTML += algoo;
 
-// avisar que se agregó un item !!!!!!!!!!!!!!!!!!
-
-};
 
 
 
