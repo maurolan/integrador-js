@@ -40,6 +40,7 @@ const menuToggleIcon = document.getElementById('menu-toggle-icon');
 const menuToggle = document.getElementById('menu-toggle');
 
 const menuCartIcon = document.getElementById('menu-cart');
+
 const CartContainer = document.getElementById('cart-container');
 
 const heroImagen = document.getElementById('hero-img');
@@ -103,49 +104,45 @@ menuCartIcon.addEventListener('click',()=>{
 
 
 // //buscar el articulos a partir del id
-// const art = articulos.find((articulo)=>{
-//     return articulo.id === id; 
-// });
+
+function agregarArticulo(id){
+    let encontrado = articulos.find(articulo => id === articulo.id);
+
+   const templateCartCard =  generarCardCart(encontrado);
+
+    renderizarCart(templateCartCard);
+} 
 
 //Funcion para Generar card de carrito
-// const generarCardCart = (id) => {
+const generarCardCart = (encontrado) => {
 
-
-//     // generar html
-//     const cartCardTemplate = articuloID => {
-//             /* CADENA PARA HTML 
+const {nombre, precio, imagen} = encontrado;
+   
+// generar html
+return `
+<div class="item-cart">
+    <img class="item-cart-img" src="${imagen}" alt="${nombre}" />
+    <div class="item-cart-info">
+        <h3 class="item-cart-title">${nombre}</h3>
+        <p class="item-cart-price">$ ${precio}</p>
+    </div>
+    <div class="item-cart-toggle">
+        <p class="item-cart-more-btn">+</p>
+        <p class="item-cart-minus-btn">-</p>
+        <p class="item-cart-del-btn">D</p>
+    </div>
+</div>
+`;
     
-//             <div class="item-cart">
-//                             <img class="item-cart-img" src="${image}" alt="${nombre}">
-//                             <div class="item-cart-info">
-//                                 <h3 class="item-cart-title">${nombre}</h3>
-//                                 <p class="item-cart-price">$ ${precio}</p>
-//                             </div>
-//                             <div class="item-cart-toggle">
-//                                 <p class="item-cart-more-btn">+</p>
-//                                 <p class="item-cart-minus-btn">-</p>
-//                                 <p class="item-cart-del-btn">D</p>
-//                             </div>
+};
+
+const renderizarCart = (art) => {
     
-//             */
+    cartItemsContainer.innerHTML += art;
     
-//             // cartItemsContainer.innerHTML += algoo;
-    
-//             // avisar que se agregó un item !!!!!!!!!!!!!!!!!!
-//     };
-    
-//     };
+    // FALTA EL AVISO  que se agregó un item !!!!!!!!!!!!!!!!!!
 
-
-// Funcion que detecta el articulo que se quiere agregar al carrito
-// const addArtCart = document.addEventListener('click',(e)=>{
-//     let id = Number(e.target.id);
-//     generarCardCart(id);
-// });
-
-
-
-
+};
 
 
 // FUNCION QUE ROTAS LAS IMAGENES CADA CIERTO TIEMPO EN HOME
@@ -313,6 +310,9 @@ const init = () => {
 
 
     // Escuchar Botones de Artículos
+    contenedorCards.addEventListener('click',(e) => {
+       let resul = agregarArticulo(Number(e.target.id));
+    });
 
 };
 
