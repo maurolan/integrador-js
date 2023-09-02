@@ -118,63 +118,31 @@ const art = articulos.find((articulo)=>{
     return articulo.id === id; 
 });
 
-
 // generar html
+const cartCardTemplate = articuloID => {
+/* CADENA PARA HTML 
 
-let itemCart = document.createElement('div');
-itemCart.classList.add('item-cart');
+<div class="item-cart">
+                <img class="item-cart-img" src="${image}" alt="${nombre}">
+                <div class="item-cart-info">
+                    <h3 class="item-cart-title">${nombre}</h3>
+                    <p class="item-cart-price">$ ${precio}</p>
+                </div>
+                <div class="item-cart-toggle">
+                    <p class="item-cart-more-btn">+</p>
+                    <p class="item-cart-minus-btn">-</p>
+                    <p class="item-cart-del-btn">D</p>
+                </div>
 
-let itemCartImg = document.createElement('img');
-itemCartImg.classList.add('item-cart-img');
-itemCartImg.src = art.imagen; 
-itemCartImg.alt = art.nombre; 
+*/
 
-let itemCartInfo = document.createElement('div');
-itemCartInfo.classList.add('item-cart-info'); // a esta clase le appendeo itemCartTitle y itemCartPrice
+};
 
-
-let itemCartTitle = document.createElement('h3');
-itemCartTitle.classList.add('item-cart-title');
-itemCartTitle.innerText = art.nombre; 
-
-
-let itemCartPrice = document.createElement('p');
-itemCartPrice.classList.add('item-cart-price');
-itemCartPrice.innerText = `$ ${art.precio}`; 
-
-let itemCartToggle = document.createElement('div');
-itemCartToggle.classList.add('item-cart-toggle'); // a esta clase le appendeo los 3 'parrafos'
-
-let itemCartMoreBtn = document.createElement('p');
-itemCartMoreBtn.classList.add('item-cart-more-btn');
-itemCartMoreBtn.innerText = '+';
-
-let itemCartMinusBtn = document.createElement('p');
-itemCartMinusBtn.classList.add('item-cart-minus-btn');
-itemCartMinusBtn.innerText = '-';
-
-let itemCartDelBtn = document.createElement('p');
-itemCartDelBtn.classList.add('item-cart-del-btn');
-itemCartDelBtn.innerText = 'D';
-
-itemCartToggle.appendChild(itemCartMoreBtn);
-itemCartToggle.appendChild(itemCartMinusBtn);
-itemCartToggle.appendChild(itemCartDelBtn);
-
-itemCartInfo.appendChild(itemCartTitle);
-itemCartInfo.appendChild(itemCartPrice);
-
-itemCart.appendChild(itemCartImg);
-itemCart.appendChild(itemCartInfo);
-itemCart.appendChild(itemCartToggle);
-
-cartItemsContainer.appendChild(itemCart);
+// cartItemsContainer.innerHTML += algoo;
 
 // avisar que se agregó un item !!!!!!!!!!!!!!!!!!
 
 };
-
-
 
 
 
@@ -341,6 +309,8 @@ const init = () => {
       // Escuchar Botones de Filtrados de Articulos
     btnCategoria.addEventListener('click',(e) => mostrarCardsFiltradas(e.target.id));
 
+
+    // Escuchar Botones de Artículos
 
 };
 
