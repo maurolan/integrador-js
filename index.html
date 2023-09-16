@@ -20,7 +20,6 @@
 
 <body>
 
-
     <!-- MENU TOOGLE HAMBURGUESA -->
     <ul class="menu-toggle" id="menu-toggle">
         <li class="item"><a class="item-a" href="#home">Home</a></li>
@@ -52,6 +51,7 @@
 
         </div>
         <div class="cart-buy-container">
+            <div class="cart-total-price" id="cart-total-price">Total: $</div>
             <div class="cart-buy-btn-container">
                 <button class="buy-cart-btn" id="buy-cart-btn">COMPRAR</button>
                 <button class="clear-cart-btn" id="clear-cart-btn">VACIAR</button>
@@ -62,6 +62,7 @@
     <!-- ENCABEZADO y NAVbar -->
     <header class="navbar" id="navbar">
         <img class="logo" src="./assets/vglogo.png" alt="logo de Venta de Garage" />
+
         <ul class="menu-container">
             <li class="item"><a href="#home">Home</a></li>
             <li class="item"><a href="#articulos">Artículos</a></li>
@@ -76,6 +77,8 @@
             </i>
 
         </div>
+        <div class="overlay" id="overlay"></div>
+
     </header>
 
     <!-- SECCION HERO -->
@@ -148,14 +151,22 @@
     <section class="articulos" id="articulos">
         <h1 class="art-titulo">Artículos</h1>
         <div class="articulos-categories" id="articulos-categories">
-            <div id="memorias" class="art-cat-btn"><i class="fa-solid fa-memory"></i>Memorias</div>
-            <div id="video" class="art-cat-btn"><i class="fa-solid fa-video"></i> Video</div>
-            <div id="storage" class="art-cat-btn"><i class="fa-solid fa-hard-drive"></i> Storage</div>
-            <div id="tools" class="art-cat-btn"><i class="fa-solid fa-wrench"></i> Tools</div>
-            <div id="perifericos" class="art-cat-btn"><i class="fa-solid fa-keyboard"></i> Perifericos</div>
-            <div id="electronica" class="art-cat-btn"><i class="fa-solid fa-microchip"></i> Electronica</div>
-            <div id="placas" class="art-cat-btn"><i class="fa-solid fa-computer"></i> Placas</div>
-            <div id="equipos" class="art-cat-btn"><i class="fa-solid fa-laptop"></i> Equipos</div>
+            <div data-categoria="todos" id="todos" class="art-cat-btn activo">Todos
+            </div>
+            <div data-categoria="memorias" id="memorias" class="art-cat-btn">Memorias
+            </div>
+            <div data-categoria="video" id="video" class="art-cat-btn">Video</div>
+            <div data-categoria="storage" id="storage" class="art-cat-btn">
+                Storage</div>
+            <div data-categoria="tools" id="tools" class="art-cat-btn"> Tools</div>
+            <div data-categoria="perifericos" id="perifericos" class="art-cat-btn">
+                Perifericos</div>
+            <div data-categoria="electronica" id="electronica" class="art-cat-btn">
+                Electronica</div>
+            <div data-categoria="placas" id="placas" class="art-cat-btn"> Placas
+            </div>
+            <div data-categoria="equipos" id="equipos" class="art-cat-btn"> Equipos
+            </div>
         </div>
         <div class="art-container" id="art-container">
 
@@ -163,7 +174,7 @@
 
         </div>
         <button class="art-more-btn" id="btn-ver-more">Ver más</button>
-        <button class="art-more-btn" id="btn-ver-all">Ver todos</button>
+        <!-- <button class="art-more-btn" id="btn-ver-all">Ver todos</button> -->
 
     </section>
 

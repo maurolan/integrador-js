@@ -10,8 +10,7 @@ const articulos = [
         condicion: "usado",
         categoria: "storage",
         stock: 2,
-        imagen: "./assets/img/articles/0001.png", 
-        cantidad: 0
+        imagen: "./assets/img/articles/0001.png"
     },
     {
         id: 2,
@@ -24,8 +23,7 @@ const articulos = [
         condicion: "usado",
         categoria: "storage",
         stock: 3,
-        imagen: "./assets/img/articles/0016.png", 
-        cantidad: 0
+        imagen: "./assets/img/articles/0016.png"
     },
     { 
         id: 3,
@@ -38,8 +36,7 @@ const articulos = [
         condicion: "usado",
         categoria: "memorias",
         stock: 4,
-        imagen: "./assets/img/articles/0002.png", 
-        cantidad: 0
+        imagen: "./assets/img/articles/0002.png"
     },
     { 
         id: 4,
@@ -52,8 +49,7 @@ const articulos = [
         condicion: "usado",
         categoria: "placas",
         stock: 1,
-        imagen: "./assets/img/articles/0003.png", 
-        cantidad: 0
+        imagen: "./assets/img/articles/0003.png"
     },
     { 
         id: 5,
@@ -66,8 +62,7 @@ const articulos = [
         condicion: "usado",
         categoria: "placas",
         stock: 1,
-        imagen: "./assets/img/articles/0017.png", 
-        cantidad: 0
+        imagen: "./assets/img/articles/0017.png"
     },
     { 
         id: 6,
@@ -80,8 +75,7 @@ const articulos = [
         condicion: "usado",
         categoria: "video",
         stock: 1,
-        imagen: "./assets/img/articles/0004.png", 
-        cantidad: 0
+        imagen: "./assets/img/articles/0004.png"
     },
     { 
         id: 7,
@@ -94,8 +88,7 @@ const articulos = [
         condicion: "usado",
         categoria: "video",
         stock: 1,
-        imagen: "./assets/img/articles/0007.png", 
-        cantidad: 0
+        imagen: "./assets/img/articles/0007.png"
     },
     { 
         id: 8,
@@ -108,8 +101,7 @@ const articulos = [
         condicion: "usado",
         categoria: "equipos",
         stock: 1,
-        imagen: "./assets/img/articles/0008.png", 
-        cantidad: 0
+        imagen: "./assets/img/articles/0008.png"
     },
     { 
         id: 9,
@@ -122,8 +114,7 @@ const articulos = [
         condicion: "usado",
         categoria: "equipos",
         stock: 1,
-        imagen: "./assets/img/articles/0009.png", 
-        cantidad: 0
+        imagen: "./assets/img/articles/0009.png"
     },
     { 
         id: 10,
@@ -136,8 +127,7 @@ const articulos = [
         condicion: "usado",
         categoria: "equipos",
         stock: 1,
-        imagen: "./assets/img/articles/0010.png", 
-        cantidad: 0
+        imagen: "./assets/img/articles/0010.png"
     },
     { 
         id: 11,
@@ -150,8 +140,7 @@ const articulos = [
         condicion: "usado",
         categoria: "equipos",
         stock: 1,
-        imagen: "./assets/img/articles/0011.png", 
-        cantidad: 0
+        imagen: "./assets/img/articles/0011.png"
     },
     { 
         id: 12,
@@ -164,8 +153,7 @@ const articulos = [
         condicion: "usado",
         categoria: "electronica",
         stock: 2,
-        imagen: "./assets/img/articles/0012.png", 
-        cantidad: 0
+        imagen: "./assets/img/articles/0012.png"
     },
     { 
         id: 13,
@@ -178,8 +166,7 @@ const articulos = [
         condicion: "usado",
         categoria: "tools",
         stock: 3,
-        imagen: "./assets/img/articles/0013.png", 
-        cantidad: 0
+        imagen: "./assets/img/articles/0013.png"
     },
     { 
         id: 14,
@@ -192,8 +179,7 @@ const articulos = [
         condicion: "usado",
         categoria: "perifericos",
         stock: 2,
-        imagen: "./assets/img/articles/0014.png", 
-        cantidad: 0
+        imagen: "./assets/img/articles/0014.png"
     },
     { 
         id: 15,
@@ -206,8 +192,7 @@ const articulos = [
         condicion: "usado",
         categoria: "perifericos",
         stock: 2,
-        imagen: "./assets/img/articles/0015.png", 
-        cantidad: 0
+        imagen: "./assets/img/articles/0015.png"
     },
     { 
         id: 16,
@@ -220,8 +205,7 @@ const articulos = [
         condicion: "usado",
         categoria: "memorias",
         stock: 2,
-        imagen: "./assets/img/articles/0018.png", 
-        cantidad: 0
+        imagen: "./assets/img/articles/0018.png"
     },
     { 
         id: 17,
@@ -234,8 +218,7 @@ const articulos = [
         condicion: "usado",
         categoria: "memorias",
         stock: 2,
-        imagen: "./assets/img/articles/0019.png", 
-        cantidad: 0
+        imagen: "./assets/img/articles/0019.png"
     },
     { 
         id: 18,
@@ -248,8 +231,7 @@ const articulos = [
         condicion: "usado",
         categoria: "video",
         stock: 1,
-        imagen: "./assets/img/articles/0020.png", 
-        cantidad: 0
+        imagen: "./assets/img/articles/0020.png"
     },
     { 
         id: 19,
@@ -262,8 +244,7 @@ const articulos = [
         condicion: "usado",
         categoria: "storage",
         stock: 2,
-        imagen: "./assets/img/articles/0021.png", 
-        cantidad: 0
+        imagen: "./assets/img/articles/0021.png"
     },
     { 
         id: 20,
@@ -276,8 +257,7 @@ const articulos = [
         condicion: "usado",
         categoria: "storage",
         stock: 2,
-        imagen: "./assets/img/articles/0022.png", 
-        cantidad: 0
+        imagen: "./assets/img/articles/0022.png"
     },
     { 
         id: 21,
@@ -290,8 +270,7 @@ const articulos = [
         condicion: "usado",
         categoria: "equipos",
         stock: 2,
-        imagen: "./assets/img/articles/0023.png", 
-        cantidad: 0
+        imagen: "./assets/img/articles/0023.png"
     },
     { 
         id: 22,
@@ -304,7 +283,26 @@ const articulos = [
         condicion: "usado",
         categoria: "electronica",
         stock: 2,
-        imagen: "./assets/img/articles/0027.png", 
-        cantidad: 0
+        imagen: "./assets/img/articles/0027.png"
     }
 ];
+
+
+
+// Divido los articulos en grupos para mostrar
+const dividirArticulos = (size) => {
+    let listaArticulos = [];
+    for ( let i = 0; i < articulos.length; i += size )
+    listaArticulos.push(articulos.slice( i, i + size ))
+    return listaArticulos; 
+}
+
+// Estado de la aplicacion
+const appState = {
+    articulos: dividirArticulos(4),
+    indiceActualArticulos: 0,
+    limiteArticulos: dividirArticulos(4).length,
+    activeFilter: 'todos',
+    toggleFlag: false,
+    cartFlag: false,
+}
