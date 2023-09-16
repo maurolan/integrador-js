@@ -145,14 +145,10 @@ body {
 .cart-items-container {
   display: flex;
   flex-direction: column;
-  justify-content: right;
-  align-items: center;
   gap: 5px;
-  width: 99%;
+  width: 90%;
   height: auto;
   border-radius: 5px;
-  padding: 10px 0;
-  margin: 0 0 20px 0;
 }
 
 .item-cart {
@@ -267,6 +263,27 @@ body {
   position: absolute;
   top: -9px;
   right: -9px;
+}
+
+.cart-added-art {
+  padding: 15px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(226, 233, 226);
+  background-color: rgb(8, 167, 8);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  transition: all 1s ease;
+  transform: translateY(200%);
+  font-weight: 400;
+  font-size: 24px;
+}
+
+.active-modal {
+  transform: translateY(0);
+  transition: all 0.8s ease;
 }
 
 /* <!-- SECCION HERO --> */

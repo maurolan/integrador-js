@@ -5,73 +5,19 @@
 const heroImagen = document.getElementById('hero-img');
 
 
-
 const contenedorCards = document.getElementById('art-container')
 
 const verTodosBtn = document.getElementById('btn-ver-all');
 
-const borrarCartBtn = document.getElementById('clear-cart-btn');
 
-// captura items carrito
-const cartItemsContainer = document.getElementById('cart-items-container');
+
 
 const cartCounter = document.getElementById('cart-counter');
-
-const cartTotalPrice = document.getElementById('cart-total-price');
-
 
 
 
 
 // VARIABLES AUXILIARES
-    
-   
-    let banderaMostrados = 0;
-
-
-// FUNCIONES AUXILIARES :::::::::::::::::
-
-// generar indices aleatorios
-const generarIndicesAleatorios = () => {
-    indicesGenerados = [];
-    while (indicesGenerados.length < 3) {
-
-        let indice = Math.floor(Math.random() * (articulos.length - 1) + 1 ); //genero numero aleatorio entre 0 y longitud de articulos
-
-        if (indicesGenerados.length === 0) { //si el el arreglo esta vacion el primero lo pusheo
-
-            indicesGenerados.push(indice);
-
-        } else {  // sino recorro el indice para comparar si el generado ya existe
-        
-            for(num of indicesGenerados){
-                if (indice !== num){ //si no existe
-                    indicesGenerados.push(indice);  //lo agrego
-                    if (indicesGenerados.length === 3) break;
-                } 
-            }
-        }
-    } 
-    return indicesGenerados;
-};
-
-
-
-
-
-
-
-
-// funciona que carga el carrito al inicio
-const articulosInicio = () => {
-    let carrito = JSON.parse(localStorage.getItem("articulos")) || [];
-    if (!carrito.length) {
-        cartItemsContainer.innerHTML = '<h3 class="no-items"> No hay items seleccionados</h3>';
-        return;
-    } 
-    renderizarCart(carrito);
-    return;
-} 
 
 // Guardar en LocalStorage
 const guardarEnLS = (encontrado) => {
@@ -86,58 +32,6 @@ const guardarEnLS = (encontrado) => {
     return;
 }
 
-// Obtener de LocalStorage
-const obtenerDeLS = () => {
-    let articulosAComprar = JSON.parse(localStorage.getItem('articulos' || []) );
-    return articulosAComprar;
-};
-
-//Borrar el LocalStorage al vaciar el carrito
-const borrarLS = () => {
-    localStorage.clear();
-    cartItemsContainer.innerHTML = '<h3 class="no-items"> No hay items seleccionados</h3>';
-};
-
-// Agregar articulos a Carrito desde BOTON AGREGAR
-function agregarArticulo(id){
-    let encontrado = articulos.find(articulo => id === articulo.id);
-    if (encontrado == undefined) {
-        return;
-    }
-
-    // Guardo en LS
-    guardarEnLS(encontrado);
-
-   // Renderizo desde LS 
-    let items = obtenerDeLS();
-    
-    renderizarCart(items); 
-
-    return;
-} 
-
-//Funcion para Generar card de carrito
-const generarCardCarrito = (item) => {
-    const {nombre, precio, imagen, cantidad} = item;     
-    return `<div class="item-cart">
-                <img class="item-cart-img" src="${imagen}" alt="${nombre}" />
-                <div class="item-cart-info">
-                    <h3 class="item-cart-title">${nombre}</h3>
-                    <p class="item-cart-price">$ ${precio}</p>
-                </div>
-                <div class="item-cart-toggle">
-                    <p class="item-cart-more-btn">+</p>
-                    <p class="item-cart-minus-btn">-</p>
-                    <p class="item-cart-del-btn">${cantidad}</p>
-                </div>
-            </div>`; 
-};
-
-const renderizarCart = (items) => {
-    cartItemsContainer.innerHTML = items.map(generarCardCarrito).join('');
-    // FALTA EL AVISO  que se agregó un item !!!!!!!!!!!!!!!!!!
-};
-
 // FUNCION QUE ROTA LAS IMAGENES CADA CIERTO TIEMPO EN HOME
 const rotadorImagenHome = () => {
 let imagen = 1;
@@ -148,14 +42,10 @@ let imagen = 1;
             imagen = 1 ;
         } 
     }, 7000);
-
 }; 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 */
-
-
 
 
 //  ::::::::::  CAPTURAS DE ELEMENTOS HTML  ::::::::::::::::
@@ -178,16 +68,23 @@ const menuCartIcon = document.getElementById('menu-cart');
 // CONTENEDOR CARRITO
 const CartContainer = document.getElementById('cart-container');
 
+// captura items carrito
+const cartItemsContainer = document.getElementById('cart-items-container');
+
 // BOTONES DE CATEGORIAS
 const btnCategoria = document.getElementById('articulos-categories');
 
 // OVERLAY
 const overlay = document.getElementById('overlay');
 
+// TOTAL DEL CARRITO
+const cartTotalPrice = document.getElementById('cart-total-price');
 
+// MENSAJE DE ARTICULO AGREGADO AL CARRITO
+const articuloAgregadoMsg = document.getElementById('cart-added-art'); 
 
-
-
+// BOTON VACIAR CARRITO
+const borrarCartBtn = document.getElementById('clear-cart-btn');
 
 
 //  ::::::::::  FUNCIONES AUXILIARES  ::::::::::::::::
@@ -209,7 +106,7 @@ const changeFilterState = (categoria) => {
 };
 
 // FUNCION QUE BORRAR LAS CARDS CARGADAS
-const vaciasContenedorCards = () => {
+const vaciarContenedorCards = () => {
     contenedorCards.innerHTML = '';
 };
 
@@ -221,27 +118,15 @@ menuToggle.addEventListener('click',()=>{
 
 
 
-
 //  ::::::::::  FUNCIONES PRINCIPALES  ::::::::::::::::
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//Borrar el LocalStorage al vaciar el carrito
+const borrarLS = () => {
+    const resp = confirm('Seguro que desea vaciar el carrito?');
+    if (resp) localStorage.clear();
+    cartItemsContainer.innerHTML = '<h3 class="no-items"> No hay items seleccionados</h3>';
+    return;
+};
 
 
 // Click menu hamburguesa --> abre el menutoggle
@@ -261,6 +146,7 @@ menuToggleIcon.addEventListener('click',()=>{
         appState.toggleFlag = false;
     }
 });
+
 
 // Click MENU CART --> abre o cierra el carrito
 const toggleCart = () => {
@@ -282,6 +168,7 @@ const toggleCart = () => {
     return;
 };
 
+
 // AL HACER CLICK EN UN LINK DEL MENU HAMBURGUESA LO CIERRA
 const toggleMenu = () => {
     menuToggle.style.display = 'none';
@@ -290,19 +177,17 @@ const toggleMenu = () => {
 };
 
 
-
-
 // FUNCION QUE MAPEA LOS ARTICULOS POR CATEGORIA
 const mapearCategoria = (categoria) => {
     if (categoria === 'todos'){
-        vaciasContenedorCards();
+        vaciarContenedorCards();
         renderizarArticulos(appState.articulos[0]);
         verMasBtn.classList.remove('ocultar');
         // return;
     }else{
     verMasBtn.classList.add('ocultar');
     const articulosFiltrados = articulos.filter(articulo => articulo.categoria === categoria);
-    vaciasContenedorCards();
+    vaciarContenedorCards();
     renderizarArticulos(articulosFiltrados);
     }
     return;
@@ -341,13 +226,15 @@ const generarCardTemplate = (articulo) => {
         `;
 };
 
+
 //FUNCION QUE RENDERIZA LOS ARTICULOS de un arreglo pasado como argumentos
 const renderizarArticulos = (listaArticulos) => {
     let CardsGuardadas = listaArticulos.map(generarCardTemplate).join('');
     contenedorCards.innerHTML += CardsGuardadas;
 }
 
-//FUNCION PARA MOSTRAR MAS PRODUCTOS AL PRESIONAR VERMAS
+
+//FUNCION PARA MOSTRAR MAS PRODUCTOS AL PRESIONAR VER MAS
 const mostrarMasArticulos = () => {
     appState.indiceActualArticulos += 1;
     let {articulos, indiceActualArticulos} = appState;
@@ -356,6 +243,7 @@ const mostrarMasArticulos = () => {
         verMasBtn.classList.add('ocultar');
     }
 };
+
 
 // FUNCION QUE CIERRA EL MENU CARRITO AL SCROLLEAR
 const closeOnScroll = () => {
@@ -382,6 +270,142 @@ const closeOnOverlayClick = () => {
 
 
 
+
+// FUNCION QUE RENDERIZA EL CARRITO
+
+// FUNCION QUE TRAE Al CARRITO VACIO O LO QUE HAYA EN LS
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+
+// FUNCION QUE GUARDA EN LS EL ARTICULO AGREGADO AL CARRITO
+const saveCart = () => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+};
+
+
+// FUNCION QUE GENERA LA 1 CARD DE UN ARTICULO EN EL CARRITO
+const generarCardCarrito = (cartProduct) => {
+    const {name, precio, img, cantidad} = cartProduct;     
+    return `<div class="item-cart">
+                <img class="item-cart-img" src="${img}" alt="${name}" />
+                <div class="item-cart-info">
+                    <h3 class="item-cart-title">${name}</h3>
+                    <p class="item-cart-price">$ ${precio}</p>
+                </div>
+                <div class="item-cart-toggle">
+                    <p class="item-cart-more-btn">+</p>
+                    <p class="item-cart-minus-btn">-</p>
+                    <p class="item-cart-del-btn">${cantidad}</p>
+                </div>
+            </div>`; 
+};
+
+
+// FUNCION QUE CALCULA EL TOTAL DEL CARRITO
+const calcularTotalCart = () => {
+    return cart.reduce((sumador, actual) => sumador + Number(actual.precio) * actual.cantidad, 0);
+};
+
+
+// FUNCION QUE MUESTRA EL TOTAL DE LA COMPRA
+const showCartTotal = () => {
+    cartTotalPrice.innerText = `$ ${calcularTotalCart().toFixed(2)}`;
+};
+
+
+
+// FUNCION QUE OBTIENE EL ID DEL PRODUCTO Y CREA EL PRODUCTO EN EL CARRITO O CAMBIA LA CANTIDAD
+const agregarArticulo = (e) => {    
+    if (!e.target.classList.contains('art-btn-add')){return};
+    
+    //llamar a funcion que desestructure lo que necesito utilizar
+    const producto = createProductData(e.target.dataset);
+  
+    
+    //comprobar si el producto ya esta en el carrito
+    if (existeArticuloEnCarrito(producto)){
+        agregarUnidadAlProducto(producto);
+        
+    // mostrar mensaje de articulo agregado
+    mostrarMsgArticuloAgregado('Se agregó una unidad del artículo al carrito');
+    }else{
+        // crear el producto en el carrito y dar feedback al usuario
+        crearArticuloCarrito(producto);
+        mostrarMsgArticuloAgregado('El producto se ha agregado al carrito');
+    };
+    updateCartState();
+};
+
+
+// FUNCION DESESTRUCTURA EL ARTICULO AGREGADO 
+const createProductData = (producto) => {
+    const {id, name, precio, img} = producto;
+    return {id, name, precio, img};
+};
+
+
+// funcion que verifica si el producto ya fue agregado al carrito
+const existeArticuloEnCarrito = (producto) => {
+    return cart.find((item) => item.id === producto.id);
+};
+
+
+// Funcion que me permite agregar una unidad al producto que ya tengo en el cart
+const agregarUnidadAlProducto = (producto) => {
+    cart = cart.map((cartProduct) => cartProduct.id === producto.id 
+        ? {...cartProduct, cantidad: cartProduct.cantidad + 1 } 
+        : cartProduct
+    );
+};
+
+// FUNCION QUE MUESTRA UN MENSAJE DE ARTICULO AGREGADO AL CARRITO
+const mostrarMsgArticuloAgregado = (msg) => {
+    // articuloAgregadoMsg.classList.add('active-modal');
+    articuloAgregadoMsg.classList.add('active-modal');
+    articuloAgregadoMsg.textContent = msg;
+    setTimeout( () => {
+        articuloAgregadoMsg.classList.remove('active-modal');
+    }, 1500);
+    return;
+};
+
+
+
+// FUNCION QUE RENDERIZA LOS PRODUCTOS DEL CARRITO Y SI NO HAY PRODUCTOS ENVIA UN MENSAJE"
+const renderCart = () => {
+    if (!cart.length){
+        cartItemsContainer.innerHTML = '<h3 class="no-items"> No hay artículos seleccionados</h3>';
+        return;
+    }
+
+    cartItemsContainer.innerHTML = cart.map(generarCardCarrito).join('');
+    // // FALTA EL AVISO  que se agregó un item !!!!!!!!!!!!!!!!!!
+};
+
+
+// creamos un objeto con la info del producto que queremos crear
+const crearArticuloCarrito = (producto) => {
+    cart = [...cart, {...producto, cantidad: 1}];
+};
+
+
+// FUNCIO PARA ACTUALIZAR EL CARRITO
+const updateCartState = () => {
+    // guardar carrito en Ls
+    saveCart();
+
+    //renderizo el carrito
+    renderCart();
+
+    // mostrar el total
+    showCartTotal();
+
+
+};
+
+
+
+
 //  ::::::::::  FUNCION INICIALIZADORA  ::::::::::::::::
 const init = () => {
 
@@ -399,34 +423,14 @@ const init = () => {
 
     overlay.addEventListener('click', closeOnOverlayClick);
 
+    document.addEventListener('DOMContentLoaded', renderCart);
 
+    cartTotalPrice.addEventListener('DOMContentLoaded', showCartTotal);
+
+    contenedorCards.addEventListener('click',agregarArticulo);
+
+    borrarCartBtn.addEventListener('click', borrarLS);
 };
 
 
 init();
-
-
-    /*
-    
-    TODO ESTO ES DE LA VERSION ANTERIOR
-
-    // Me traigo items del carrito si tiene
-    document.addEventListener('DOMContentLoaded', articulosInicio);
-
-    // Rotas imagenes en Home
-    rotadorImagenHome();
-
-    // muestro 3 articulos iniciales al azar
-    articulosIniciales();
-
-    //escuchar boton vaciar carrito
-    borrarCartBtn.addEventListener('click',borrarLS);
-
-    //escuchar botones de sumar o restar item del carrito
-    // itemCartMoreBtn.addEventListener('click',sumarItem);
-    // itemCartMinusBtn.addEventListener('click',restarItem);
-
-    */
-
-
-
