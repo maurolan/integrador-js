@@ -368,6 +368,15 @@ const closeOnScroll = () => {
 };
 
 
+// FUNCION QUE CIERRA EL MENU CARRITO L CLICKEAR EN LA ZONA OVERLAY
+const closeOnOverlayClick = () => {
+    overlay.classList.remove('show-overlay');
+    CartContainer.style.visibility = 'hidden';
+    CartContainer.style.transform = 'translate(150%)';
+    appState.toggleFlag = false;
+    appState.cartFlag = false;
+    return;
+};
 
 
 
@@ -388,6 +397,7 @@ const init = () => {
 
     window.addEventListener('scroll', closeOnScroll);
 
+    overlay.addEventListener('click', closeOnOverlayClick);
 
 
 };
