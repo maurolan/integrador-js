@@ -1,14 +1,3 @@
-/*  TODO EL CODIGO ANTERIOR
-
-// CAPTURA DE ELEMENTOS
-
-
-
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-*/
-
 //  ::::::::::  CAPTURAS DE ELEMENTOS HTML  ::::::::::::::::
 
 // CAPTURO CONTENEDOR IMAGEN HERO
@@ -59,13 +48,14 @@ const btnVaciar = document.getElementById('clear-cart-btn');
 // BURBUJA CARRITO CONTADOR
 const cartCounter = document.getElementById('cart-counter');
 
+
 // CAMPOS FORMULARIO
-const form = document.getElementById('contacto-form');
-const nombre = document.getElementById('nombre');
-const apellido = document.getElementById('apellido');
-const email = document.getElementById('email');
-const telefono = document.getElementById('telefono');
-const enviarForm = document.getElementById('contacto-btn');
+const registerform = document.getElementById('contacto-form');
+const nameInput = document.getElementById('nombre');
+const lastNameInput = document.getElementById('apellido');
+const emailInput = document.getElementById('email');
+const telInput = document.getElementById('telefono');
+const registerBtn = document.getElementById('contacto-btn');
 
 
 
@@ -103,23 +93,74 @@ menuToggle.addEventListener('click',()=>{
 
 
 
-//  ::::::::::  FUNCIONES PRINCIPALES  ::::::::::::::::
+// FUNCIONES FORMULARIO
+
+//AUXILIARES
+const isEmpty = (input) => {
+    return input.value.trim().length;
+};
+
+const showError = (input, message) => {
+ const formField = input.parentElement;
+ input.style.border = 'red 1px solid';
+ formField.classList.remove('form-field-sucess');
+ const error = formField.querySelector('small');
+ error.style.display = 'block';
+ error.innerText = message;
+};
+
+const isBetween = (input, min, max) => {
+    return input.value.length >= min && input.value.length <= max;
+};
 
 
-/*
-const form = document.getElementById('contacto-form');
-const nombre = document.getElementById('nombre');
-const apellido = document.getElementById('apellido');
-const email = document.getElementById('email');
-const telefono = document.getElementById('telefono');
-const enviarForm = document.getElementById('contacto-btn');
-*/ 
+const showSuccess = (input) => {
+    const formField = input.parentElement;
+    input.style.border = 'green 1px solid';
+    const error = formField.querySelector('small');
+    error.innerText = '';
+};
 
-
+// PRINCIPALES
 // FUNCION QUE VALIDA EL FORMULARIO
 const validarForm = (e) => {
     e.preventDefault();
+
+    
+
+
 };
+
+const validateNameLast = (input) => {
+    let valid = false;
+    const minChar = 3;
+    const maxChar = 25;
+
+    if(!isEmpty(input)){
+        showError(input, 'Campo obligatorio');
+        return;
+    } 
+
+    if(!isBetween(input, minChar, maxChar)){
+        showError(input, `Campo debe ser entre ${minChar} y ${maxChar} caracteres`);
+        return;
+    }
+    
+    showSuccess(input);
+    valid = true;
+    return valid;
+
+};
+
+
+
+
+
+
+
+
+
+//  ::::::::::  FUNCIONES PRINCIPALES  ::::::::::::::::
 
 
 // FUNCION QUE ROTA LAS IMAGENES CADA CIERTO TIEMPO EN HOME
@@ -489,7 +530,14 @@ const init = () => {
 
     btnComprar.addEventListener('click', comprarArticulos);
 
-    form.addEventListener('submit', validarForm);
+    // Form
+   registerform.addEventListener('submit', validarForm);
+
+   nameInput.addEventListener('blur', () => validateNameLast(nameInput));
+
+   lastNameInput.addEventListener('blur', () => validateNameLast(lastNameInput));
+
+
 
 };
 

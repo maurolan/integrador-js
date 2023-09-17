@@ -210,14 +210,31 @@
     <section class="contacto" id="contacto">
 
         <div class="contacto-container">
-            <form class="contacto-form" id="contacto-form" action="">
-                <h3 class="contacto-form-title">Contacto</h3>
-                <input class="contacto-form-input" type="text" id="nombre" placeholder="Nombre...">
-                <input class="contacto-form-input" type="text" id="apellido" placeholder="Apellido...">
-                <input class="contacto-form-input" type="text" id="email" placeholder="Correo...">
-                <input class="contacto-form-input" type="text" id="telefono" placeholder="Teléfono...">
+            <h3 class="contacto-form-title">Contacto</h3>
 
-                <button class="contacto-btn" id="contacto-btn">Enviar</button>
+            <form class="contacto-form" id="contacto-form" action="">
+                <div class="form-field">
+                    <input class="contacto-form-input" type="text" id="nombre" placeholder="Nombre..."
+                        autocomplete="off" />
+                    <small></small>
+                </div>
+                <div class="form-field">
+                    <input class="contacto-form-input" type="text" id="apellido" placeholder="Apellido..."
+                        autocomplete="off" />
+                    <small></small>
+                </div>
+                <div class="form-field">
+                    <input class="contacto-form-input" type="text" id="email" placeholder="Correo..."
+                        autocomplete="off" />
+                    <small></small>
+                </div>
+                <div class="form-field">
+                    <input class="contacto-form-input" type="text" id="telefono" placeholder="Teléfono..."
+                        autocomplete="off" />
+                    <small></small>
+                </div>
+                <button class="contacto-btn" id="contacto-btn">Registrarse</button>
+
             </form>
 
             <div class="footer-icon-container">
@@ -251,13 +268,19 @@
     <!-- JAVASCRIPT -->
 
     <!-- Link a archivo de datos -->
-    <script src="jsdata.js"></script>
+    <script src="./jsdata.js"></script>
 
     <!-- Fontawesome script -->
     <script src="https://kit.fontawesome.com/4e948b8293.js" crossorigin="anonymous"></script>
 
+    <!-- Link a register JS -->
+    <script src="./registro.js"></script>
+
     <!-- Link a codigo JS -->
-    <script src="scripts.js"></script>
+    <script src="./scripts.js"></script>
+
+
+
 
 </body>
 
