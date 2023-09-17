@@ -55,7 +55,9 @@ const nameInput = document.getElementById('nombre');
 const lastNameInput = document.getElementById('apellido');
 const emailInput = document.getElementById('email');
 const telInput = document.getElementById('telefono');
+const passwordInput = document.getElementById('password');
 const registerBtn = document.getElementById('contacto-btn');
+
 
 
 
@@ -107,6 +109,7 @@ const showError = (input, message) => {
  const error = formField.querySelector('small');
  error.style.display = 'block';
  error.innerText = message;
+ return;
 };
 
 const isBetween = (input, min, max) => {
@@ -119,6 +122,7 @@ const showSuccess = (input) => {
     input.style.border = 'green 1px solid';
     const error = formField.querySelector('small');
     error.innerText = '';
+    return;
 };
 
 
@@ -134,15 +138,50 @@ const isValidPhone = (input) => {
     return re.test(input.value.trim());
 };
 
+
+const isSecurePass = (input) => {
+    const re = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/;
+    return re.test(input.value.trim());
+
+    /*  
+    La contraseña debe tener al menos 8 caracteres, un dígito, una minúscula y al menos una mayúscula y caracter especial 
+    /^/ 	Indica inicio de línea
+    /(?=.*?[A-Z])/ 	Busca al menos una letra mayúscula
+    /(?=.*?[a-z])/ 	Busca al menos una letra minúscula
+    /(?=.*?[0-9])/ 	Busca al menos un número
+    /(?=.*?[#?!@$ %^&*-])/ 	Busca al menos un caracter especial
+    /.{8,}/ 	Cualquier caracter. Mínimo 8
+    /$/ 	Indica fin de línea
+
+    Lo copie del sitio:  https://blog.fergv.com/js/regex/#ejemplos   */
+};
+
+
+// FUNCION QUE BUSCA EN USERS DE LOCALSTORAGE SI EXISTE EL USUARIO QUE INTENTA REGISTRAR
+const isExistingEmail = (input) => {
+    return users.some((users) => users.email === input.value);
+};
+
+
 // PRINCIPALES
 // FUNCION QUE VALIDA EL FORMULARIO
 const validarForm = (e) => {
     e.preventDefault();
 
-    
 
-
+    return;
 };
+
+// Cargo users de localstorage
+const users = JSON.parse(localStorage.getItem("users")) || [];
+
+
+// Guardo usuarios en localstorage
+const saveUserToLocalStorage = () => {
+    localStorage.setItem("users", JSON.stringify(users));
+    return;
+};
+
 
 const validateNameLast = (input) => {
     let valid = false;
@@ -168,7 +207,6 @@ const validateNameLast = (input) => {
 
 const validateEmail = (input) => {
     let valid = false;
-
     if(!isEmpty(input)){
         showError(input, 'El email es un campo obligatorio');
         return;
@@ -179,19 +217,21 @@ const validateEmail = (input) => {
         return;
     };
 
+    if(isExistingEmail(input)){
+        showError(input, 'El email se encuentra registrado');
+        return;
+    };
+
     showSuccess(input);
     valid = true;
     return valid;
 };
 
 
-
-
-
 const validatePhone = (input) => {
     let valid = false;
     const minChar = 8;
-    const maxChar = 10;
+    const maxChar = 12;
 
     if(!isEmpty(input)){
         showError(input, 'El telèfono es un campo obligatorio');
@@ -213,6 +253,31 @@ const validatePhone = (input) => {
     return valid;
 };
 
+
+const validatePassword = (input) => {
+    let valid = false;
+    const minChar = 8;
+    const maxChar = 16;
+
+    if(!isEmpty(input)){
+        showError(input, 'El password es un campo obligatorio');
+        return;
+    }
+
+    if(!isBetween(input, minChar, maxChar)){
+        showError(input, `el password debe contener entre ${minChar} y ${maxChar} caracteres`);
+        return;
+    }
+
+    if(!isSecurePass(input)){
+        showError(input, 'El password debe tener al menos un dígito, minúscula y mayúscula y caracter especial');
+        return;
+    };
+
+    showSuccess(input);
+    valid = true;
+    return valid;
+};
 
 
 
@@ -597,6 +662,8 @@ const init = () => {
    emailInput.addEventListener('change', () => validateEmail(emailInput) );
 
    telInput.addEventListener('change', () => validatePhone(telInput) );
+
+   passwordInput.addEventListener('change', () => validatePassword(passwordInput) );
 
 
 
