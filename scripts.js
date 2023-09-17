@@ -59,7 +59,13 @@ const btnVaciar = document.getElementById('clear-cart-btn');
 // BURBUJA CARRITO CONTADOR
 const cartCounter = document.getElementById('cart-counter');
 
-
+// CAMPOS FORMULARIO
+const form = document.getElementById('contacto-form');
+const nombre = document.getElementById('nombre');
+const apellido = document.getElementById('apellido');
+const email = document.getElementById('email');
+const telefono = document.getElementById('telefono');
+const enviarForm = document.getElementById('contacto-btn');
 
 
 
@@ -99,6 +105,21 @@ menuToggle.addEventListener('click',()=>{
 
 //  ::::::::::  FUNCIONES PRINCIPALES  ::::::::::::::::
 
+
+/*
+const form = document.getElementById('contacto-form');
+const nombre = document.getElementById('nombre');
+const apellido = document.getElementById('apellido');
+const email = document.getElementById('email');
+const telefono = document.getElementById('telefono');
+const enviarForm = document.getElementById('contacto-btn');
+*/ 
+
+
+// FUNCION QUE VALIDA EL FORMULARIO
+const validarForm = (e) => {
+    e.preventDefault();
+};
 
 
 // FUNCION QUE ROTA LAS IMAGENES CADA CIERTO TIEMPO EN HOME
@@ -468,7 +489,7 @@ const init = () => {
 
     btnComprar.addEventListener('click', comprarArticulos);
 
-
+    form.addEventListener('submit', validarForm);
 
 };
 
