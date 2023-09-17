@@ -86,6 +86,12 @@ const articuloAgregadoMsg = document.getElementById('cart-added-art');
 // BOTON VACIAR CARRITO
 const borrarCartBtn = document.getElementById('clear-cart-btn');
 
+// BOTON COMPRAR CARRITO
+const btnComprar = document.getElementById('buy-cart-btn'); 
+
+// BOTON VACIAR CARRITO
+const btnVaciar = document.getElementById('clear-cart-btn');
+
 
 //  ::::::::::  FUNCIONES AUXILIARES  ::::::::::::::::
 
@@ -120,11 +126,18 @@ menuToggle.addEventListener('click',()=>{
 
 //  ::::::::::  FUNCIONES PRINCIPALES  ::::::::::::::::
 
+const ocultarBotonesCart = () => {
+    btnComprar.classList.add('ocultar');
+    btnVaciar.classList.add('ocultar');
+    cartTotalPrice.classList.add('ocultar');
+};
+
 //Borrar el LocalStorage al vaciar el carrito
 const borrarLS = () => {
     const resp = confirm('Seguro que desea vaciar el carrito?');
     if (resp) localStorage.clear();
     cartItemsContainer.innerHTML = '<h3 class="no-items"> No hay items seleccionados</h3>';
+    ocultarBotonesCart();
     return;
 };
 
@@ -374,12 +387,15 @@ const mostrarMsgArticuloAgregado = (msg) => {
 // FUNCION QUE RENDERIZA LOS PRODUCTOS DEL CARRITO Y SI NO HAY PRODUCTOS ENVIA UN MENSAJE"
 const renderCart = () => {
     if (!cart.length){
+        ocultarBotonesCart();
         cartItemsContainer.innerHTML = '<h3 class="no-items"> No hay artículos seleccionados</h3>';
         return;
     }
-
+    
     cartItemsContainer.innerHTML = cart.map(generarCardCarrito).join('');
-    // // FALTA EL AVISO  que se agregó un item !!!!!!!!!!!!!!!!!!
+    btnComprar.classList.remove('ocultar');
+    btnVaciar.classList.remove('ocultar');
+    cartTotalPrice.classList.remove('ocultar');
 };
 
 
