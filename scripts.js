@@ -133,12 +133,6 @@ const isValidEmail = (input) => {
 };
 
 
-const isValidPhone = (input) => {
-    const re = /[0-9]/;
-    return re.test(input.value.trim());
-};
-
-
 const isSecurePass = (input) => {
     const re = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/;
     return re.test(input.value.trim());
@@ -156,6 +150,11 @@ const isSecurePass = (input) => {
     Lo copie del sitio:  https://blog.fergv.com/js/regex/#ejemplos   */
 };
 
+
+const isValidPhone = (input) => {
+    const re = /[0-9]{10,}/;
+    return re.test(input.value.trim());
+};
 
 // FUNCION QUE BUSCA EN USERS DE LOCALSTORAGE SI EXISTE EL USUARIO QUE INTENTA REGISTRAR
 const isExistingEmail = (input) => {
@@ -201,7 +200,6 @@ const validateNameLast = (input) => {
     showSuccess(input);
     valid = true;
     return valid;
-
 };
 
 
@@ -228,36 +226,10 @@ const validateEmail = (input) => {
 };
 
 
-const validatePhone = (input) => {
-    let valid = false;
-    const minChar = 8;
-    const maxChar = 12;
-
-    if(!isEmpty(input)){
-        showError(input, 'El telèfono es un campo obligatorio');
-        return;
-    }
-
-    if(!isBetween(input, minChar, maxChar)){
-        showError(input, `el teléfono debe contener al menos ${minChar} dígitos`);
-        return;
-    }
-
-    if(!isValidPhone(input)){
-        showError(input, 'debe ingresar un número válido');
-        return;
-    };
-
-    showSuccess(input);
-    valid = true;
-    return valid;
-};
-
-
 const validatePassword = (input) => {
     let valid = false;
     const minChar = 8;
-    const maxChar = 16;
+    const maxChar = 18;
 
     if(!isEmpty(input)){
         showError(input, 'El password es un campo obligatorio');
@@ -280,11 +252,34 @@ const validatePassword = (input) => {
 };
 
 
+const validatePhone = (input) => {
+    let valid = false;
+    const minChar = 10;
+    const maxChar = 14;
+
+    if(!isEmpty(input)){
+        showError(input, 'El telèfono es un campo obligatorio');
+        return;
+    }
+
+    if(!isBetween(input, minChar, maxChar)){
+        showError(input, `el teléfono debe contener entre ${minChar} y ${maxChar} dígitos`);
+        return;
+    }
+
+    if(!isValidPhone(input)){
+        showError(input, 'debe ingresar un número válido');
+        return;
+    };
+
+    showSuccess(input);
+    valid = true;
+    return valid;
+};
+
 
 
 //  ::::::::::  FUNCIONES PRINCIPALES  ::::::::::::::::
-
-
 // FUNCION QUE ROTA LAS IMAGENES CADA CIERTO TIEMPO EN HOME
 const rotadorImagenHome = () => {
     let imagen = 1;
@@ -655,15 +650,15 @@ const init = () => {
     // Form
    registerform.addEventListener('submit', validarForm);
 
-   nameInput.addEventListener('change', () => validateNameLast(nameInput));
+   nameInput.addEventListener('input', () => validateNameLast(nameInput));
 
-   lastNameInput.addEventListener('change', () => validateNameLast(lastNameInput));
+   lastNameInput.addEventListener('input', () => validateNameLast(lastNameInput));
 
-   emailInput.addEventListener('change', () => validateEmail(emailInput) );
+   emailInput.addEventListener('input', () => validateEmail(emailInput) );
 
-   telInput.addEventListener('change', () => validatePhone(telInput) );
+   telInput.addEventListener('input', () => validatePhone(telInput) );
 
-   passwordInput.addEventListener('change', () => validatePassword(passwordInput) );
+   passwordInput.addEventListener('input', () => validatePassword(passwordInput) );
 
 
 
