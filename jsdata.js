@@ -304,5 +304,5 @@ const appState = {
     limiteArticulos: dividirArticulos(4).length,
     activeFilter: 'todos',
     toggleFlag: false,
-    cartFlag: false,
+    cartFlag: false
 }

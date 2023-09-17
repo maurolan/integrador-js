@@ -2,34 +2,17 @@
 
 // CAPTURA DE ELEMENTOS
 
-const heroImagen = document.getElementById('hero-img');
-
-
-const contenedorCards = document.getElementById('art-container')
-
-const verTodosBtn = document.getElementById('btn-ver-all');
 
 
 
-// VARIABLES AUXILIARES
-
-// FUNCION QUE ROTA LAS IMAGENES CADA CIERTO TIEMPO EN HOME
-const rotadorImagenHome = () => {
-let imagen = 1;
-    setInterval(() => {
-        heroImagen.setAttribute('src',`./assets/img/homeimg${imagen}.jpg`)
-        imagen++;
-        if (imagen == 7){
-            imagen = 1 ;
-        } 
-    }, 7000);
-}; 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 */
 
-
 //  ::::::::::  CAPTURAS DE ELEMENTOS HTML  ::::::::::::::::
+
+// CAPTURO CONTENEDOR IMAGEN HERO
+const heroImagen = document.getElementById('hero-img');
 
 // CONTENEDOR DE PRODUCTOS
 const contenedorCards = document.getElementById('art-container');
@@ -78,23 +61,29 @@ const cartCounter = document.getElementById('cart-counter');
 
 
 
+
+
 //  ::::::::::  FUNCIONES AUXILIARES  ::::::::::::::::
+
 
 // Conocer el indice renderizado de productos llego al limite
 const esUltimoIndice = () => {
     return (appState.indiceActualArticulos === (appState.limiteArticulos - 1));
 };
 
+
 // Saber si el boton de filtro presionado ya esta activo 
 const esUnBotonInactivo = (categoria) => {
     return (categoria !== appState.botonPresionado) ;
 };
+
 
 // FUNCION QUE CAMBIA EL ESTADO DEL FILTRO APLICADO
 const changeFilterState = (categoria) => {
     appState.activeFilter = categoria;
     return;
 };
+
 
 // FUNCION QUE BORRAR LAS CARDS CARGADAS
 const vaciarContenedorCards = () => {
@@ -108,8 +97,22 @@ menuToggle.addEventListener('click',()=>{
 
 
 
-
 //  ::::::::::  FUNCIONES PRINCIPALES  ::::::::::::::::
+
+
+
+// FUNCION QUE ROTA LAS IMAGENES CADA CIERTO TIEMPO EN HOME
+const rotadorImagenHome = () => {
+    let imagen = 1;
+        setInterval(() => {
+            heroImagen.setAttribute('src',`./assets/img/homeimg${imagen}.jpg`)
+            imagen++;
+            if (imagen == 16){
+                imagen = 1 ;
+            } 
+        }, 4000);
+    }; 
+
 
 const mostrarBotonesCart = () => {
     btnComprar.classList.remove('ocultar');
@@ -123,26 +126,29 @@ const ocultarBotonesCart = () => {
     cartTotalPrice.classList.add('ocultar');
 };
 
+
 //FUNCION QUE BORRA EL LOCAL STORAGE AL VACIAR EL CARRITO
 const borrarLS = () => {
     const resp = confirm('Seguro que desea vaciar el carrito?');
     if (resp) localStorage.clear();
-    cartItemsContainer.innerHTML = '<h3 class="no-items"> No hay items seleccionados</h3>';
+    cartItemsContainer.innerHTML = '<h3 class="no-items"> No hay artículos seleccionados</h3>';
     ocultarBotonesCart();
     agregarArticuloBurbuja(0);
+    appState.cartState = false;
     location.reload();
     return;
 };
+
 
 const comprarCart = () => {
     localStorage.clear();
-    cartItemsContainer.innerHTML = '<h3 class="no-items"> No hay items seleccionados</h3>';
+    cartItemsContainer.innerHTML = '<h3 class="no-items"> No hay artículos seleccionados</h3>';
     ocultarBotonesCart();
     agregarArticuloBurbuja(0);
+    appState.cartState = false;
     location.reload();
     return;
 };
-
 
 
 // Click menu hamburguesa --> ABRE EL MENUTOGGLE
@@ -174,7 +180,8 @@ const toggleCart = () => {
         appState.cartFlag = true;
 
         menuToggle.style.display = 'none';
-        appState.toggleFlag = false;
+        appState.toggleFlag = false;        
+
     }else{
         overlay.classList.remove('show-overlay');
         CartContainer.style.visibility = 'hidden';
@@ -284,10 +291,7 @@ const closeOnOverlayClick = () => {
 
 
 
-
-
-
-// FUNCION QUE RENDERIZA EL CARRITO
+//// FUNCION QUE RENDERIZA EL CARRITO
 
     // FUNCION QUE TRAE Al CARRITO VACIO O LO QUE HAYA EN LS
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -301,7 +305,7 @@ const saveCart = () => {
 
     // FUNCION QUE GENERA LA 1 CARD DE UN ARTICULO EN EL CARRITO
 const generarCardCarrito = (cartProduct) => {
-    const {name, precio, img, cantidad} = cartProduct;     
+    const {id, name, precio, img, cantidad} = cartProduct;     
     return `<div class="item-cart">
                 <img class="item-cart-img" src="${img}" alt="${name}" />
                 <div class="item-cart-info">
@@ -309,12 +313,13 @@ const generarCardCarrito = (cartProduct) => {
                     <p class="item-cart-price">$ ${precio}</p>
                 </div>
                 <div class="item-cart-toggle">
-                    <p class="item-cart-more-btn">+</p>
-                    <p class="item-cart-minus-btn">-</p>
-                    <p class="item-cart-del-btn">${cantidad}</p>
+                    <p class="item-cart-qty">x ${cantidad}</p>
                 </div>
             </div>`; 
+            //<p id="cart-more-btn" class="item-cart-more-btn" data-id="${id}">+</p>
+            //<p class="item-cart-minus-btn">-</p>
 };
+
 
     // FUNCION QUE CALCULA EL TOTAL DEL CARRITO
 const calcularTotalCart = () => {
@@ -327,6 +332,7 @@ const showCartTotal = () => {
     cartTotalPrice.innerText = `$ ${calcularTotalCart().toFixed(2)}`;
 };
 
+
 // FUNCION QUE SUMA EN LA BURBUJA DEL CARRITO
 const agregarArticuloBurbuja = (cantidad) => {
     cartCounter.innerText = cantidad;
@@ -337,17 +343,17 @@ const agregarArticuloBurbuja = (cantidad) => {
 const agregarArticulo = (e) => {    
     if (!e.target.classList.contains('art-btn-add')){return};
     
-    //llamar a funcion que desestructure lo que necesito utilizar
+    //DESESTRUCTURAR LOS DATOS QUE NECESITO
     const producto = createProductData(e.target.dataset);
     
-    //comprobar si el producto ya esta en el carrito
+    // VALIDA SI EL ARTICULO YA EXISTE
     if (existeArticuloEnCarrito(producto)){
         agregarUnidadAlProducto(producto);
         
-    // mostrar mensaje de articulo agregado
+    // MUESTRA UN MENSAJE QUE SE AGREGO UN ARTICULO
     mostrarMsgArticuloAgregado('Se agregó una unidad del artículo al carrito');
     }else{
-        // crear el producto en el carrito y dar feedback al usuario
+        // CREAR ARTICULO Y MOSTRAR MENSAJE
         crearArticuloCarrito(producto);
         mostrarMsgArticuloAgregado('El producto se ha agregado al carrito');
     };
@@ -376,6 +382,7 @@ const agregarUnidadAlProducto = (producto) => {
     );
 };
 
+
 // FUNCION QUE MUESTRA UN MENSAJE DE ARTICULO AGREGADO AL CARRITO
 const mostrarMsgArticuloAgregado = (msg) => {
     // articuloAgregadoMsg.classList.add('active-modal');
@@ -388,17 +395,19 @@ const mostrarMsgArticuloAgregado = (msg) => {
 };
 
 
-
 // FUNCION QUE RENDERIZA LOS PRODUCTOS DEL CARRITO Y SI NO HAY PRODUCTOS ENVIA UN MENSAJE"
 const renderCart = () => {
     if (!cart.length){
         ocultarBotonesCart();
         cartItemsContainer.innerHTML = '<h3 class="no-items"> No hay artículos seleccionados</h3>';
+        appState.cartState = false;
         return;
     }
     cartItemsContainer.innerHTML = cart.map(generarCardCarrito).join('');
     mostrarBotonesCart();
     agregarArticuloBurbuja(cart.length);
+    appState.cartState = true;
+    return;
 };
 
 
@@ -421,13 +430,19 @@ const updateCartState = () => {
 
 };
 
+
 const comprarArticulos = () => {
     alert('Se ha enviado la orden de compra');
     comprarCart();
 };
 
+
+
+
 //  ::::::::::  FUNCION INICIALIZADORA  ::::::::::::::::
 const init = () => {
+
+    document.addEventListener('DOMContentLoaded', rotadorImagenHome);
 
     renderizarArticulos(appState.articulos[0]);
 
@@ -445,7 +460,6 @@ const init = () => {
 
     document.addEventListener('DOMContentLoaded', renderCart);
 
-    // cartTotalPrice.addEventListener('DOMContentLoaded', showCartTotal);
     document.addEventListener('DOMContentLoaded', showCartTotal);
 
     contenedorCards.addEventListener('click',agregarArticulo);
@@ -453,6 +467,8 @@ const init = () => {
     borrarCartBtn.addEventListener('click', borrarLS);
 
     btnComprar.addEventListener('click', comprarArticulos);
+
+
 
 };
 
