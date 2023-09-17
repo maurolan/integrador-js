@@ -134,6 +134,16 @@ const borrarLS = () => {
     return;
 };
 
+const comprarCart = () => {
+    localStorage.clear();
+    cartItemsContainer.innerHTML = '<h3 class="no-items"> No hay items seleccionados</h3>';
+    ocultarBotonesCart();
+    agregarArticuloBurbuja(0);
+    location.reload();
+    return;
+};
+
+
 
 // Click menu hamburguesa --> ABRE EL MENUTOGGLE
 menuToggleIcon.addEventListener('click',()=>{
@@ -411,7 +421,10 @@ const updateCartState = () => {
 
 };
 
-
+const comprarArticulos = () => {
+    alert('Se ha enviado la orden de compra');
+    comprarCart();
+};
 
 //  ::::::::::  FUNCION INICIALIZADORA  ::::::::::::::::
 const init = () => {
@@ -439,7 +452,7 @@ const init = () => {
 
     borrarCartBtn.addEventListener('click', borrarLS);
 
-    btnComprar.addEventListener('click', );
+    btnComprar.addEventListener('click', comprarArticulos);
 
 };
 
