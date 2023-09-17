@@ -167,6 +167,29 @@ const isExistingEmail = (input) => {
 const validarForm = (e) => {
     e.preventDefault();
 
+    let isNameValid = validateNameLast(nameInput);
+    let isLastNameValid = validateNameLast(lastNameInput);
+    let isEmailValid = validateNameLast(emailInput);
+    let isPasswordValid = validateNameLast(passwordInput);
+    let isPhoneValid = validateNameLast(telInput);
+
+    let isValidForm = isNameValid && isLastNameValid && isEmailValid && isPasswordValid && isPhoneValid;
+
+    if (isValidForm) {
+        users.push({
+            name: nameInput.value,
+            lastname: lastNameInput.value,
+            email: emailInput.value,
+            password: passwordInput.value,
+            phone: telInput.value
+        });
+
+        saveUserToLocalStorage(users);
+        alert('Te has registrado con èxito');
+        registerform.reset();
+        window.location.href = '#home';
+    };
+
 
     return;
 };
@@ -470,6 +493,7 @@ const closeOnOverlayClick = () => {
 
 
 
+
 //// FUNCION QUE RENDERIZA EL CARRITO
 
     // FUNCION QUE TRAE Al CARRITO VACIO O LO QUE HAYA EN LS
@@ -617,7 +641,6 @@ const comprarArticulos = () => {
 
 
 
-
 //  ::::::::::  FUNCION INICIALIZADORA  ::::::::::::::::
 const init = () => {
 
@@ -633,6 +656,7 @@ const init = () => {
     
     menuToggle.addEventListener('click', toggleMenu);
 
+    // carrito
     window.addEventListener('scroll', closeOnScroll);
 
     overlay.addEventListener('click', closeOnOverlayClick);
@@ -647,22 +671,18 @@ const init = () => {
 
     btnComprar.addEventListener('click', comprarArticulos);
 
-    // Form
-   registerform.addEventListener('submit', validarForm);
+    // Formulario
+    nameInput.addEventListener('input', () => validateNameLast(nameInput));
 
-   nameInput.addEventListener('input', () => validateNameLast(nameInput));
+    lastNameInput.addEventListener('input', () => validateNameLast(lastNameInput));
 
-   lastNameInput.addEventListener('input', () => validateNameLast(lastNameInput));
+    emailInput.addEventListener('input', () => validateEmail(emailInput) );
 
-   emailInput.addEventListener('input', () => validateEmail(emailInput) );
+    passwordInput.addEventListener('input', () => validatePassword(passwordInput) );
 
-   telInput.addEventListener('input', () => validatePhone(telInput) );
+    telInput.addEventListener('input', () => validatePhone(telInput) );
 
-   passwordInput.addEventListener('input', () => validatePassword(passwordInput) );
-
-
-
+    registerform.addEventListener('submit', validarForm);
 };
-
 
 init();
