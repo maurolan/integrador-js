@@ -184,13 +184,15 @@ body {
 
 .item-cart-title {
   color: rgb(36, 36, 36);
-  font-size: 0.8em;
+  font-size: 1em;
   text-align: center;
+  user-select: none;
 }
 
 .item-cart-price {
   color: rgb(36, 36, 36);
-  font-size: 1.1em;
+  font-size: 1.2em;
+  user-select: none;
 }
 
 .item-cart-toggle {
@@ -210,11 +212,12 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 40%;
-  font-size: 0.8em;
+  font-size: 1em;
   width: 27px;
   height: 27px;
-  background-color: black;
-  color: #c5f31e;
+  background-color: rgba(60, 65, 63, 0.692);
+  color: #fbfdf3;
+  user-select: none;
 }
 
 .item-cart-more-btn,
@@ -230,16 +233,19 @@ body {
 .cart-buy-btn-container {
   display: flex;
   flex-direction: column;
+  justify-content: right;
+  align-items: center;
   gap: 10px;
 }
 .buy-cart-btn,
 .clear-cart-btn {
   border-radius: 20px;
+  border: none;
   width: 120px;
   height: 35px;
-  background-color: green;
+  background-color: rgb(5, 112, 173);
   font-size: 1.3em;
-  color: yellow;
+  color: rgb(217, 223, 224);
   cursor: pointer;
 }
 

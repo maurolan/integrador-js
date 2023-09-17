@@ -11,26 +11,7 @@ const verTodosBtn = document.getElementById('btn-ver-all');
 
 
 
-
-const cartCounter = document.getElementById('cart-counter');
-
-
-
-
 // VARIABLES AUXILIARES
-
-// Guardar en LocalStorage
-const guardarEnLS = (encontrado) => {
-    //cargo el LS antes de guardarlo
-    const articulos = obtenerDeLS() || [];
-    
-    // pusheo el nuevo item agregado
-    articulos.push(encontrado);
-
-    // vuelvo a guardar en LS todo
-    localStorage.setItem('articulos',JSON.stringify(articulos));
-    return;
-}
 
 // FUNCION QUE ROTA LAS IMAGENES CADA CIERTO TIEMPO EN HOME
 const rotadorImagenHome = () => {
@@ -92,6 +73,10 @@ const btnComprar = document.getElementById('buy-cart-btn');
 // BOTON VACIAR CARRITO
 const btnVaciar = document.getElementById('clear-cart-btn');
 
+// BURBUJA CARRITO CONTADOR
+const cartCounter = document.getElementById('cart-counter');
+
+
 
 //  ::::::::::  FUNCIONES AUXILIARES  ::::::::::::::::
 
@@ -138,17 +123,18 @@ const ocultarBotonesCart = () => {
     cartTotalPrice.classList.add('ocultar');
 };
 
-//Borrar el LocalStorage al vaciar el carrito
+//FUNCION QUE BORRA EL LOCAL STORAGE AL VACIAR EL CARRITO
 const borrarLS = () => {
     const resp = confirm('Seguro que desea vaciar el carrito?');
     if (resp) localStorage.clear();
     cartItemsContainer.innerHTML = '<h3 class="no-items"> No hay items seleccionados</h3>';
     ocultarBotonesCart();
+    agregarArticuloBurbuja(0);
     return;
 };
 
 
-// Click menu hamburguesa --> abre el menutoggle
+// Click menu hamburguesa --> ABRE EL MENUTOGGLE
 menuToggleIcon.addEventListener('click',()=>{
     
     if(!appState.toggleFlag){
@@ -167,7 +153,7 @@ menuToggleIcon.addEventListener('click',()=>{
 });
 
 
-// Click MENU CART --> abre o cierra el carrito
+// Click MENU CART --> ABRE O CIERRA EL CARRITO
 const toggleCart = () => {
     
     if (!appState.cartFlag){
@@ -292,17 +278,17 @@ const closeOnOverlayClick = () => {
 
 // FUNCION QUE RENDERIZA EL CARRITO
 
-// FUNCION QUE TRAE Al CARRITO VACIO O LO QUE HAYA EN LS
+    // FUNCION QUE TRAE Al CARRITO VACIO O LO QUE HAYA EN LS
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 
-// FUNCION QUE GUARDA EN LS EL ARTICULO AGREGADO AL CARRITO
+    // FUNCION QUE GUARDA EN LS EL ARTICULO AGREGADO AL CARRITO
 const saveCart = () => {
     localStorage.setItem("cart", JSON.stringify(cart));
 };
 
 
-// FUNCION QUE GENERA LA 1 CARD DE UN ARTICULO EN EL CARRITO
+    // FUNCION QUE GENERA LA 1 CARD DE UN ARTICULO EN EL CARRITO
 const generarCardCarrito = (cartProduct) => {
     const {name, precio, img, cantidad} = cartProduct;     
     return `<div class="item-cart">
@@ -319,8 +305,7 @@ const generarCardCarrito = (cartProduct) => {
             </div>`; 
 };
 
-
-// FUNCION QUE CALCULA EL TOTAL DEL CARRITO
+    // FUNCION QUE CALCULA EL TOTAL DEL CARRITO
 const calcularTotalCart = () => {
     return cart.reduce((sumador, actual) => sumador + Number(actual.precio) * actual.cantidad, 0);
 };
@@ -331,6 +316,10 @@ const showCartTotal = () => {
     cartTotalPrice.innerText = `$ ${calcularTotalCart().toFixed(2)}`;
 };
 
+// FUNCION QUE SUMA EN LA BURBUJA DEL CARRITO
+const agregarArticuloBurbuja = (cantidad) => {
+    cartCounter.innerText = cantidad;
+};
 
 
 // FUNCION QUE OBTIENE EL ID DEL PRODUCTO Y CREA EL PRODUCTO EN EL CARRITO O CAMBIA LA CANTIDAD
@@ -339,7 +328,6 @@ const agregarArticulo = (e) => {
     
     //llamar a funcion que desestructure lo que necesito utilizar
     const producto = createProductData(e.target.dataset);
-  
     
     //comprobar si el producto ya esta en el carrito
     if (existeArticuloEnCarrito(producto)){
@@ -399,6 +387,7 @@ const renderCart = () => {
     }
     cartItemsContainer.innerHTML = cart.map(generarCardCarrito).join('');
     mostrarBotonesCart();
+    agregarArticuloBurbuja(cart.length);
 };
 
 
