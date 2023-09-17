@@ -130,6 +130,7 @@ const borrarLS = () => {
     cartItemsContainer.innerHTML = '<h3 class="no-items"> No hay items seleccionados</h3>';
     ocultarBotonesCart();
     agregarArticuloBurbuja(0);
+    location.reload();
     return;
 };
 
@@ -437,6 +438,9 @@ const init = () => {
     contenedorCards.addEventListener('click',agregarArticulo);
 
     borrarCartBtn.addEventListener('click', borrarLS);
+
+    btnComprar.addEventListener('click', );
+
 };
 
 
