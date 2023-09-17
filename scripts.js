@@ -126,6 +126,12 @@ menuToggle.addEventListener('click',()=>{
 
 //  ::::::::::  FUNCIONES PRINCIPALES  ::::::::::::::::
 
+const mostrarBotonesCart = () => {
+    btnComprar.classList.remove('ocultar');
+    btnVaciar.classList.remove('ocultar');
+    cartTotalPrice.classList.remove('ocultar');
+};
+
 const ocultarBotonesCart = () => {
     btnComprar.classList.add('ocultar');
     btnVaciar.classList.add('ocultar');
@@ -391,11 +397,8 @@ const renderCart = () => {
         cartItemsContainer.innerHTML = '<h3 class="no-items"> No hay artículos seleccionados</h3>';
         return;
     }
-    
     cartItemsContainer.innerHTML = cart.map(generarCardCarrito).join('');
-    btnComprar.classList.remove('ocultar');
-    btnVaciar.classList.remove('ocultar');
-    cartTotalPrice.classList.remove('ocultar');
+    mostrarBotonesCart();
 };
 
 
@@ -415,7 +418,6 @@ const updateCartState = () => {
 
     // mostrar el total
     showCartTotal();
-
 
 };
 
@@ -440,7 +442,8 @@ const init = () => {
 
     document.addEventListener('DOMContentLoaded', renderCart);
 
-    cartTotalPrice.addEventListener('DOMContentLoaded', showCartTotal);
+    // cartTotalPrice.addEventListener('DOMContentLoaded', showCartTotal);
+    document.addEventListener('DOMContentLoaded', showCartTotal);
 
     contenedorCards.addEventListener('click',agregarArticulo);
 
