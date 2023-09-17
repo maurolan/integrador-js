@@ -121,6 +121,19 @@ const showSuccess = (input) => {
     error.innerText = '';
 };
 
+
+const isValidEmail = (input) => {
+    const re = /^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,4})+$/;
+
+    return re.test(input.value.trim());
+};
+
+
+const isValidPhone = (input) => {
+    const re = /[0-9]/;
+    return re.test(input.value.trim());
+};
+
 // PRINCIPALES
 // FUNCION QUE VALIDA EL FORMULARIO
 const validarForm = (e) => {
@@ -153,8 +166,52 @@ const validateNameLast = (input) => {
 };
 
 
+const validateEmail = (input) => {
+    let valid = false;
+
+    if(!isEmpty(input)){
+        showError(input, 'El email es un campo obligatorio');
+        return;
+    }
+
+    if(!isValidEmail(input)){
+        showError(input, 'El formato del email no es correcto');
+        return;
+    };
+
+    showSuccess(input);
+    valid = true;
+    return valid;
+};
 
 
+
+
+
+const validatePhone = (input) => {
+    let valid = false;
+    const minChar = 8;
+    const maxChar = 10;
+
+    if(!isEmpty(input)){
+        showError(input, 'El telèfono es un campo obligatorio');
+        return;
+    }
+
+    if(!isBetween(input, minChar, maxChar)){
+        showError(input, `el teléfono debe contener al menos ${minChar} dígitos`);
+        return;
+    }
+
+    if(!isValidPhone(input)){
+        showError(input, 'debe ingresar un número válido');
+        return;
+    };
+
+    showSuccess(input);
+    valid = true;
+    return valid;
+};
 
 
 
@@ -533,9 +590,13 @@ const init = () => {
     // Form
    registerform.addEventListener('submit', validarForm);
 
-   nameInput.addEventListener('blur', () => validateNameLast(nameInput));
+   nameInput.addEventListener('change', () => validateNameLast(nameInput));
 
-   lastNameInput.addEventListener('blur', () => validateNameLast(lastNameInput));
+   lastNameInput.addEventListener('change', () => validateNameLast(lastNameInput));
+
+   emailInput.addEventListener('change', () => validateEmail(emailInput) );
+
+   telInput.addEventListener('change', () => validatePhone(telInput) );
 
 
 

@@ -91,6 +91,10 @@
     /* gap: 5px; */
     margin: 2px;
   }
+
+  .contacto-form-input {
+    max-width: 350px;
+  }
 }
 
 /*/////////// 564 //////////////////*/
@@ -160,6 +164,11 @@
 
   .contacto-form-title {
     font-size: 2.8em;
+  }
+
+  .contacto-form-input {
+    width: 300px;
+    max-width: 320px;
   }
 
   .footer-icon-container {

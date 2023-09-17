@@ -782,8 +782,7 @@ footer,
 }
 
 .contacto-form-input {
-  width: 250px;
-  /* max-width: 75%; */
+  width: 400px;
   min-width: 40%;
   font-size: 1.1em;
   height: 60px;
@@ -792,8 +791,13 @@ footer,
   padding: 0 10px;
   box-shadow: #b4b2b2 2px 2px 10px 1px;
 }
-.contacto-form-input {
-  width: 400px;
+
+.contacto-form-input:focus {
+  outline: none;
+}
+
+.contacto-form-input:active {
+  outline: none;
 }
 
 .form-field-sucess {
