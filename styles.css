@@ -353,7 +353,6 @@ footer,
   background: linear-gradient(rgb(2, 91, 224), rgb(201, 6, 6));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  /*PONER EFECTO A ESTE TITULO*/
 }
 
 .hero-subtitulo {
@@ -516,12 +515,14 @@ footer,
 }
 
 .art-cat-btn:hover {
-  background-color: #a01094;
+  background-color: #0e7050;
+  border: rgb(147, 206, 30) 2px dotted;
   color: #e2dddd;
 }
 
 .activo {
-  background-color: #a01094;
+  background-color: #0e7050;
+  border: rgb(147, 206, 30) 2px dotted;
   color: #e2dddd;
 }
 

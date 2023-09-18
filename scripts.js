@@ -86,6 +86,7 @@ const changeFilterState = (categoria) => {
 // FUNCION QUE BORRAR LAS CARDS CARGADAS
 const vaciarContenedorCards = () => {
     contenedorCards.innerHTML = '';
+    return;
 };
 
 // SI HAGO CLICK O TAPEO EN EL MENU TOGGLE QUITO EL OVERLAY
@@ -189,7 +190,6 @@ const validarForm = (e) => {
         registerform.reset();
         window.location.href = '#home';
     };
-
 
     return;
 };
@@ -313,19 +313,22 @@ const rotadorImagenHome = () => {
                 imagen = 1 ;
             } 
         }, 4000);
-    }; 
+        return;
+}; 
 
 
 const mostrarBotonesCart = () => {
     btnComprar.classList.remove('ocultar');
     btnVaciar.classList.remove('ocultar');
     cartTotalPrice.classList.remove('ocultar');
+    return;
 };
 
 const ocultarBotonesCart = () => {
     btnComprar.classList.add('ocultar');
     btnVaciar.classList.add('ocultar');
     cartTotalPrice.classList.add('ocultar');
+    return;
 };
 
 
@@ -355,7 +358,6 @@ const comprarCart = () => {
 
 // Click menu hamburguesa --> ABRE EL MENUTOGGLE
 menuToggleIcon.addEventListener('click',()=>{
-    
     if(!appState.toggleFlag){
         overlay.classList.add('show-overlay');
         menuToggle.style.display = 'flex';
@@ -369,12 +371,12 @@ menuToggleIcon.addEventListener('click',()=>{
         menuToggle.style.display = 'none';
         appState.toggleFlag = false;
     }
+    return;
 });
 
 
 // Click MENU CART --> ABRE O CIERRA EL CARRITO
 const toggleCart = () => {
-    
     if (!appState.cartFlag){
         overlay.classList.add('show-overlay');
         CartContainer.style.visibility = 'visible';
@@ -383,7 +385,6 @@ const toggleCart = () => {
 
         menuToggle.style.display = 'none';
         appState.toggleFlag = false;        
-
     }else{
         overlay.classList.remove('show-overlay');
         CartContainer.style.visibility = 'hidden';
@@ -429,6 +430,7 @@ const mostrarCardsFiltradas = (e) => {
         e.target.classList.add('activo');
     };
     mapearCategoria(categoria);
+    return;
 };
 
 
@@ -443,7 +445,7 @@ const generarCardTemplate = (articulo) => {
             <h3 class="art-nombre">${nombre} - ${marca}</h3>
             <p class="art-description">${descripcion} ${detalle} ${modelo}</p>
             <div class="art-price-btn-container"> 
-                <h2 class="art-price">${precio}</h2>
+                <h2 class="art-price">$ ${precio}</h2>
                 <button class="art-btn-add" data-name="${nombre}" 
                 data-img="${imagen}" data-precio="${precio}" data-id="${id}">Agregar</button>
             </div>
@@ -456,6 +458,7 @@ const generarCardTemplate = (articulo) => {
 const renderizarArticulos = (listaArticulos) => {
     let CardsGuardadas = listaArticulos.map(generarCardTemplate).join('');
     contenedorCards.innerHTML += CardsGuardadas;
+    return;
 }
 
 
@@ -467,6 +470,7 @@ const mostrarMasArticulos = () => {
     if (esUltimoIndice()){
         verMasBtn.classList.add('ocultar');
     }
+    return;
 };
 
 
@@ -503,6 +507,7 @@ let cart = JSON.parse(localStorage.getItem("cart")) || [];
     // FUNCION QUE GUARDA EN LS EL ARTICULO AGREGADO AL CARRITO
 const saveCart = () => {
     localStorage.setItem("cart", JSON.stringify(cart));
+    return;
 };
 
 
@@ -519,8 +524,6 @@ const generarCardCarrito = (cartProduct) => {
                     <p class="item-cart-qty">x ${cantidad}</p>
                 </div>
             </div>`; 
-            //<p id="cart-more-btn" class="item-cart-more-btn" data-id="${id}">+</p>
-            //<p class="item-cart-minus-btn">-</p>
 };
 
 
@@ -533,12 +536,14 @@ const calcularTotalCart = () => {
 // FUNCION QUE MUESTRA EL TOTAL DE LA COMPRA
 const showCartTotal = () => {
     cartTotalPrice.innerText = `$ ${calcularTotalCart().toFixed(2)}`;
+    return;
 };
 
 
 // FUNCION QUE SUMA EN LA BURBUJA DEL CARRITO
 const agregarArticuloBurbuja = (cantidad) => {
     cartCounter.innerText = cantidad;
+    return;
 };
 
 
@@ -561,6 +566,7 @@ const agregarArticulo = (e) => {
         mostrarMsgArticuloAgregado('El producto se ha agregado al carrito');
     };
     updateCartState();
+    return;
 };
 
 
@@ -583,6 +589,7 @@ const agregarUnidadAlProducto = (producto) => {
         ? {...cartProduct, cantidad: cartProduct.cantidad + 1 } 
         : cartProduct
     );
+    return;
 };
 
 
@@ -617,6 +624,7 @@ const renderCart = () => {
 // creamos un objeto con la info del producto que queremos crear
 const crearArticuloCarrito = (producto) => {
     cart = [...cart, {...producto, cantidad: 1}];
+    return;
 };
 
 
@@ -630,13 +638,14 @@ const updateCartState = () => {
 
     // mostrar el total
     showCartTotal();
-
+    return;
 };
 
 
 const comprarArticulos = () => {
     alert('Se ha enviado la orden de compra');
     comprarCart();
+    return;
 };
 
 
